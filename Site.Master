@@ -43,6 +43,7 @@
 
                 <div class="header-part-right">
                     <!-- Full screen toggle -->
+                    <a href="Landing.Master">Landing.Master</a>
                     <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen=""></i>
                     <!-- Grid menu Dropdown -->
                     <div class="dropdown">
