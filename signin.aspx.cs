@@ -30,7 +30,7 @@ namespace ktms
             //bool isAuthenticated = ValidateUser(strUsername, strPassword);
 
             // Authenticat using a separate class file "authentication.cs"
-            authentication authUser = new authentication();
+            Authentication authUser = new Authentication();
             bool isAuthenticated = authUser.ValidateUser(strUsername, strPassword);
             
             if (isAuthenticated)

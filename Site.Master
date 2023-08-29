@@ -1,8 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ktms.Site" %>
 
 <!DOCTYPE html>
+<html lang="en" dir="">
 
-<html>
 <head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -14,53 +14,41 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
+
 <body class="text-left">
-    <form id="form1" runat="server">
-        <!-- Pre Loader Strat  -->
-        <div class='loadscreen' id="preloader">
-            <div class="loader spinner-bubble spinner-bubble-primary">
+    <!-- Pre Loader Strat  -->
+    <div class='loadscreen' id="preloader">
+        <div class="loader spinner-bubble spinner-bubble-primary"></div>
+    </div>
+    <!-- Pre Loader end  -->
+    <form runat="server">
+    <div class="app-admin-wrap layout-sidebar-large">
+        <div class="main-header">
+            <div class="logo">
+                <img src="./assets/images/logo.png" alt="">
             </div>
-        </div>
-        <!-- Pre Loader end  -->
 
-        <div class="app-admin-wrap layout-sidebar-large">
-            <div class="main-header">
-                <div class="logo">
-                    <img src="./assets/images/logo.png" alt="">
+            <div class="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="d-flex align-items-center">               
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <i class="search-icon text-muted i-Magnifi-Glass1"></i>
                 </div>
+            </div>
 
-                <%--Menu hamburger--%>
-                <div class="menu-toggle">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <%--end Menu hamburger--%>
+            <div style="margin: auto"></div>
 
-                <div style="margin: auto">
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                </div>
-
-                <div class="header-part-right">
-                    <!-- Full screen toggle -->
-                    <a href="Landing.Master">Landing.Master</a>
-                    <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen=""></i>
-                    <!-- Grid menu Dropdown -->
-                    <div class="dropdown">
-                        <i class="i-Safe-Box text-muted header-icon" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <div class="menu-icon-grid">
-                                <a href="#"><i class="i-Shop-4"></i>Home</a>
-                                <a href="#"><i class="i-Library"></i>Test Type</a>
-                                <a href="#"><i class="i-Drop"></i>Exam</a>
-                                <a href="#"><i class="i-File-Clipboard-File--Text"></i>Forms</a>
-                                <a href="#"><i class="i-Checked-User"></i>Sessions</a>
-                                <a href="#"><i class="i-Ambulance"></i>Support</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Notification -->
-                    <%--<div class="dropdown">
+            <div class="header-part-right">
+                <!-- Full screen toggle -->
+                <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen></i>
+              
+                <!-- Notificaiton -->
+                <div class="dropdown">
                     <div class="badge-top-container" role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="badge badge-primary">3</span>
                         <i class="i-Bell text-muted header-icon"></i>
@@ -124,101 +112,99 @@
                             </div>
                         </div>
                     </div>
-                </div>--%>
-                    <!-- Notificaiton End -->
+                </div>
+                <!-- Notificaiton End -->
 
-                    <!-- User avatar dropdown -->
-                    <div class="dropdown">
-                        <div class="user col align-self-end">
-                            <img src="./assets/images/faces/1.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- User avatar dropdown -->
+                <div class="dropdown">
+                    <div class="user col align-self-end">
+                        <img src="./assets/images/faces/1.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                <div class="dropdown-header">
-                                    <i class="i-Lock-User mr-1"></i>
-                                    <asp:Label ID="lblCurrentUser" runat="server" Text=""></asp:Label>
-                                </div>
-                                <a class="dropdown-item" href="#">Account settings</a>
-                                <a class="dropdown-item" href="#">Change password</a>
-                                <%--<a class="dropdown-item" href="signin.html" id="signout" runat="server">Sign out</a>--%>
-                                <asp:LinkButton ID="lb_signout" runat="server" class="dropdown-item" OnClick="lb_signout_Click">Sign out</asp:LinkButton>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <div class="dropdown-header">
+                                <i class="i-Lock-User mr-1"></i> <%=Session["username"] %>
                             </div>
+                            <a class="dropdown-item">Account settings</a>
+                            <a class="dropdown-item">Billing history</a>
+                            <a class="dropdown-item" href="signin.html">Sign out</a>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!-- header top menu end -->
 
-            <div class="side-content-wrap">
-                <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
-                    <ul class="navigation-left">
-                        <li class="nav-item" data-item="dashboard">
-                            <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-Bar-Chart"></i>
-                                <span class="nav-text">Dashboard</span>
-                            </a>
-                            <div class="triangle"></div>
-                        </li>
-                        <li class="nav-item" data-item="uikits">
-                            <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-Library"></i>
-                                <span class="nav-text">Test Type</span>
-                            </a>
-                            <div class="triangle"></div>
-                        </li>
-                        <li class="nav-item" data-item="extrakits">
-                            <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-Suitcase"></i>
-                                <span class="nav-text">Test Master</span>
-                            </a>
-                            <div class="triangle"></div>
-                        </li>
-                        <li class="nav-item" data-item="apps">
-                            <a class="nav-item-hold" href="#">
-                                <i class="nav-icon i-Computer-Secure"></i>
-                                <span class="nav-text">Allocate Test</span>
-                            </a>
-                            <div class="triangle"></div>
-                        </li>
-                        <%--<li class="nav-item" data-item="forms">
+        </div>
+        <!-- header top menu end -->
+
+        <div class="side-content-wrap">
+            <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
+                <ul class="navigation-left">
+                    <li class="nav-item" data-item="dashboard">
+                        <a class="nav-item-hold" href="#">
+                            <i class="nav-icon i-Bar-Chart"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="uikits">
+                        <a class="nav-item-hold" href="#">
+                            <i class="nav-icon i-Library"></i>
+                            <span class="nav-text">UI kits</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="extrakits">
+                        <a class="nav-item-hold" href="#">
+                            <i class="nav-icon i-Suitcase"></i>
+                            <span class="nav-text">Extra kits</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="apps">
+                        <a class="nav-item-hold" href="#">
+                            <i class="nav-icon i-Computer-Secure"></i>
+                            <span class="nav-text">Apps</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="forms">
                         <a class="nav-item-hold" href="#">
                             <i class="nav-icon i-File-Clipboard-File--Text"></i>
                             <span class="nav-text">Forms</span>
                         </a>
                         <div class="triangle"></div>
-                    </li>--%>
-                        <%--   <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-item-hold" href="datatables.html">
                             <i class="nav-icon i-File-Horizontal-Text"></i>
                             <span class="nav-text">Datatables</span>
                         </a>
                         <div class="triangle"></div>
-                    </li>--%>
-                        <%--         <li class="nav-item" data-item="sessions">
+                    </li>
+                    <li class="nav-item" data-item="sessions">
                         <a class="nav-item-hold" href="#">
                             <i class="nav-icon i-Administrator"></i>
                             <span class="nav-text">Sessions</span>
                         </a>
                         <div class="triangle"></div>
-                    </li>--%>
-                        <%--        <li class="nav-item active" data-item="others">
+                    </li>
+                    <li class="nav-item active" data-item="others">
                         <a class="nav-item-hold" href="#">
                             <i class="nav-icon i-Double-Tap"></i>
                             <span class="nav-text">Others</span>
                         </a>
                         <div class="triangle"></div>
-                    </li>--%>
-                        <li class="nav-item">
-                            <a class="nav-item-hold" href="http://demos.ui-lib.com/gull-html-doc/" target="_blank">
-                                <i class="nav-icon i-Safe-Box1"></i>
-                                <span class="nav-text">Doc</span>
-                            </a>
-                            <div class="triangle"></div>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item-hold" href="http://demos.ui-lib.com/gull-html-doc/" target="_blank">
+                            <i class="nav-icon i-Safe-Box1"></i>
+                            <span class="nav-text">Doc</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                </ul>
+            </div>
 
-                <%-- <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
+            <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
                 <!-- Submenu Dashboards -->
                 <ul class="childNav" data-parent="dashboard">
                     <li class="nav-item">
@@ -504,214 +490,165 @@
                         </a>
                     </li>
                 </ul>
-
-            </div>--%>
-                <div class="sidebar-overlay"></div>
             </div>
-            <!--=============== Left side End ================-->
+            <div class="sidebar-overlay"></div>
+        </div>
+        <!--=============== Left side End ================-->
 
-            <!-- ============ Body content start ============= -->
-            <div class="main-content-wrap sidenav-open d-flex flex-column">
+        <!-- ============ Body content start ============= -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- ============ Body content End ============= -->
+    </div>
+    <!--=============== End app-admin-wrap ================-->
 
-                <!-- Start Main content -->
-                <div class="main-content">
-                    <%--<form id="form1" runat="server">--%>
-                    <div>
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
+    <!-- ============ Search UI Start ============= -->
+    <div class="search-ui">
+        <div class="search-header">
+            <img src="./assets/images/logo.png" alt="" class="logo">
+            <button class="search-close btn btn-icon bg-transparent float-right mt-2">
+                <i class="i-Close-Window text-22 text-muted"></i>
+            </button>
+        </div>
+
+        <input type="text" placeholder="Type here" class="search-input" autofocus>
+
+        <div class="search-title">
+            <span class="text-muted">Search results</span>
+        </div>
+
+        <div class="search-results list-horizontal">
+            <div class="list-item col-md-12 p-0">
+                <div class="card o-hidden flex-row mb-4 d-flex">
+                    <div class="list-thumb d-flex">
+                        <!-- TUMBNAIL -->
+                        <img src="./assets/images/products/headphone-1.jpg" alt="">
                     </div>
-                    <%--</form>--%>
-                </div>
-                <!-- End Main content -->
-
-                <!-- Footer Start -->
-                <div class="flex-grow-1"></div>
-                <div class="app-footer">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <p><strong>Knowledge Test Management System</strong></p>
-                            <p>
-                                Practicum 
+                    <div class="flex-grow-1 pl-2 d-flex">
+                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
+                            <!-- OTHER DATA -->
+                            <a href="" class="w-40 w-sm-100">
+                                <div class="item-title">Headphone 1</div>
+                            </a>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">
+                                $300
+                                <del class="text-secondary">$400</del>
+                            </p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
+                                <span class="badge badge-danger">Sale</span>
                             </p>
                         </div>
                     </div>
-                    <div class="footer-bottom border-top pt-3 d-flex flex-column flex-sm-row align-items-center">
-                        <a class="btn btn-primary text-white btn-rounded" href="#" target="_blank">Knowledge Test Application</a>
-                        <span class="flex-grow-1"></span>
-                        <div class="d-flex align-items-center">
-                            <%--<img class="logo" src="./assets/images/logo.png" alt="">--%>
-                            <div>
-                                <p class="m-0">&copy; <%= DateTime.Now.ToString("yyyy")%> KTMS</p>
-                                <p class="m-0">All rights reserved</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer end -->
-
-            </div>
-            <!-- ============ Body content End ============= -->
-        </div>
-        <!--=============== End app-admin-wrap ================-->
-
-        <!-- ============ Search UI Start ============= -->
-        <div class="search-ui">
-            <div class="search-header">
-                <img src="./assets/images/logo.png" alt="" class="logo">
-                <button class="search-close btn btn-icon bg-transparent float-right mt-2">
-                    <i class="i-Close-Window text-22 text-muted"></i>
-                </button>
-            </div>
-
-            <input type="text" placeholder="Type here" class="search-input" autofocus>
-
-            <div class="search-title">
-                <span class="text-muted">Search results</span>
-            </div>
-
-            <div class="search-results list-horizontal">
-                <div class="list-item col-md-12 p-0">
-                    <div class="card o-hidden flex-row mb-4 d-flex">
-                        <div class="list-thumb d-flex">
-                            <!-- TUMBNAIL -->
-                            <img src="./assets/images/products/headphone-1.jpg" alt="">
-                        </div>
-                        <div class="flex-grow-1 pl-2 d-flex">
-                            <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
-                                <!-- OTHER DATA -->
-                                <a href="#" class="w-40 w-sm-100">
-                                    <div class="item-title">Headphone 1</div>
-                                </a>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">
-                                    $300
-                                <del class="text-secondary">$400</del>
-                                </p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
-                                    <span class="badge badge-danger">Sale</span>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="list-item col-md-12 p-0">
-                    <div class="card o-hidden flex-row mb-4 d-flex">
-                        <div class="list-thumb d-flex">
-                            <!-- TUMBNAIL -->
-                            <img src="./assets/images/products/headphone-2.jpg" alt="">
-                        </div>
-                        <div class="flex-grow-1 pl-2 d-flex">
-                            <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
-                                <!-- OTHER DATA -->
-                                <a href="#" class="w-40 w-sm-100">
-                                    <div class="item-title">Headphone 1</div>
-                                </a>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">
-                                    $300
-                                <del class="text-secondary">$400</del>
-                                </p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
-                                    <span class="badge badge-primary">New</span>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="list-item col-md-12 p-0">
-                    <div class="card o-hidden flex-row mb-4 d-flex">
-                        <div class="list-thumb d-flex">
-                            <!-- TUMBNAIL -->
-                            <img src="./assets/images/products/headphone-3.jpg" alt="">
-                        </div>
-                        <div class="flex-grow-1 pl-2 d-flex">
-                            <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
-                                <!-- OTHER DATA -->
-                                <a href="#" class="w-40 w-sm-100">
-                                    <div class="item-title">Headphone 1</div>
-                                </a>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">
-                                    $300
-                                <del class="text-secondary">$400</del>
-                                </p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
-                                    <span class="badge badge-primary">New</span>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="list-item col-md-12 p-0">
-                    <div class="card o-hidden flex-row mb-4 d-flex">
-                        <div class="list-thumb d-flex">
-                            <!-- TUMBNAIL -->
-                            <img src="./assets/images/products/headphone-4.jpg" alt="">
-                        </div>
-                        <div class="flex-grow-1 pl-2 d-flex">
-                            <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
-                                <!-- OTHER DATA -->
-                                <a href="#" class="w-40 w-sm-100">
-                                    <div class="item-title">Headphone 1</div>
-                                </a>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100">
-                                    $300
-                                <del class="text-secondary">$400</del>
-                                </p>
-                                <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
-                                    <span class="badge badge-primary">New</span>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
-            <!-- PAGINATION CONTROL -->
-            <div class="col-md-12 mt-5 text-center">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination d-inline-flex">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
+            <div class="list-item col-md-12 p-0">
+                <div class="card o-hidden flex-row mb-4 d-flex">
+                    <div class="list-thumb d-flex">
+                        <!-- TUMBNAIL -->
+                        <img src="./assets/images/products/headphone-2.jpg" alt="">
+                    </div>
+                    <div class="flex-grow-1 pl-2 d-flex">
+                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
+                            <!-- OTHER DATA -->
+                            <a href="" class="w-40 w-sm-100">
+                                <div class="item-title">Headphone 1</div>
                             </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">
+                                $300
+                                <del class="text-secondary">$400</del>
+                            </p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
+                                <span class="badge badge-primary">New</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="list-item col-md-12 p-0">
+                <div class="card o-hidden flex-row mb-4 d-flex">
+                    <div class="list-thumb d-flex">
+                        <!-- TUMBNAIL -->
+                        <img src="./assets/images/products/headphone-3.jpg" alt="">
+                    </div>
+                    <div class="flex-grow-1 pl-2 d-flex">
+                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
+                            <!-- OTHER DATA -->
+                            <a href="" class="w-40 w-sm-100">
+                                <div class="item-title">Headphone 1</div>
                             </a>
-                        </li>
-                    </ul>
-                </nav>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">
+                                $300
+                                <del class="text-secondary">$400</del>
+                            </p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
+                                <span class="badge badge-primary">New</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="list-item col-md-12 p-0">
+                <div class="card o-hidden flex-row mb-4 d-flex">
+                    <div class="list-thumb d-flex">
+                        <!-- TUMBNAIL -->
+                        <img src="./assets/images/products/headphone-4.jpg" alt="">
+                    </div>
+                    <div class="flex-grow-1 pl-2 d-flex">
+                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row">
+                            <!-- OTHER DATA -->
+                            <a href="" class="w-40 w-sm-100">
+                                <div class="item-title">Headphone 1</div>
+                            </a>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">Gadget</p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100">
+                                $300
+                                <del class="text-secondary">$400</del>
+                            </p>
+                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
+                                <span class="badge badge-primary">New</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- ============ Search UI End ============= -->
-
-        <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/vendor/perfect-scrollbar.min.js"></script>
-        <script src="assets/js/es5/script.min.js"></script>
-        <script src="assets/js/es5/sidebar.large.script.min.js"></script>
-        <script>
-            /* ----------------------------- 
-            Pre Loader
-            ----------------------------- */
-            $(window).on('load', function () {
-                'use strict';
-                $('.loadscreen').delay(500).fadeOut();
-                // $('#preloader').delay(800).fadeOut('slow');
-            });
-        </script>
-
+        <!-- PAGINATION CONTROL -->
+        <div class="col-md-12 mt-5 text-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination d-inline-flex">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- ============ Search UI End ============= -->
     </form>
+    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/es5/script.min.js"></script>
+    <script src="assets/js/es5/sidebar.large.script.min.js"></script>
+
 </body>
+
 </html>

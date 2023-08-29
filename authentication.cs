@@ -6,7 +6,7 @@ using BCrypt.Net;
 
 namespace ktms
 {
-    public class authentication
+    public class Authentication
     {
         public bool ValidateUser(string username, string password)
         {
