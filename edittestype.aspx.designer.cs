@@ -11,7 +11,7 @@ namespace ktms
 {
 
 
-    public partial class addtesttype
+    public partial class edittestype
     {
 
         /// <summary>

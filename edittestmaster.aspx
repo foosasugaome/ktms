@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="addtestmaster.aspx.cs" Inherits="ktms.addtestmaster" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="edittestmaster.aspx.cs" Inherits="ktms.edittestmaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,7 +6,7 @@
 
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
-            <h1>Add Test Master</h1>
+            <h1>Edit Test Master</h1>
         </div>
 
         <div class="separator-breadcrumb border-top"></div>
@@ -15,7 +15,7 @@
             <div class="col-md-12">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div class="card-title mb-3">Add Test Master</div>
+                        <div class="card-title mb-3">Edit Test Master</div>
 
                         <div class="row">
 
@@ -28,7 +28,7 @@
                                     <asp:ListItem Value="1" Text="Class 7 - English" />
                                     <asp:ListItem Value="1" Text="Class 7 - French" />
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select test type." ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select a test type." ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
@@ -73,13 +73,21 @@
                             <div class="col-md-6 form-group mb-3">
                                 <asp:Label AssociatedControlID="txtCorrectAnswer" Text="Correct Answer" runat="server" CssClass="form-label" />
                                 <asp:TextBox ID="txtCorrectAnswer" CssClass="form-control" placeholder="Enter correct answer" runat="server" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter correct answer." ControlToValidate="txtCorrectAnswer" CssClass="invalid-feedback" Display="Dynamic" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please enter correct answer." ControlToValidate="txtCorrectAnswer" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
-
-
 
                             <div class="col-md-6 form-group mb-3">
+                                <asp:Label AssociatedControlID="imgQuestion" Text="Question Image" runat="server" CssClass="form-label" />
                             </div>
+
+                            <div class="col-md-6 form-group mb-3">
+
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <asp:Image ID="imgQuestion" ImageUrl="~/Files/TestMaster/2.gif" runat="server" width="50px"   />
+                            </div>
+
                             <div class="col-md-12">
                                 <asp:LinkButton ID="lnkCancel" CssClass="btn btn-dark float-right m-1" Text="Cancel" runat="server" PostBackUrl="~/testmasterlist.aspx" CausesValidation="false" />
                                 <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" />

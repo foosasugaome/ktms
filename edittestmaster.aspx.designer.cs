@@ -11,7 +11,7 @@ namespace ktms
 {
 
 
-    public partial class addtestmaster
+    public partial class edittestmaster
     {
 
         /// <summary>
@@ -150,13 +150,22 @@ namespace ktms
         protected global::System.Web.UI.WebControls.TextBox txtCorrectAnswer;
 
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// RequiredFieldValidator9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+
+        /// <summary>
+        /// imgQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgQuestion;
 
         /// <summary>
         /// lnkCancel control.

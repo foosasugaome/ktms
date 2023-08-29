@@ -406,7 +406,13 @@
     <Content Include="assets\styles\vendor\toastr.min.css" />
     <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="edittestmaster.aspx" />
+    <Content Include="edittestype.aspx" />
     <Content Include="edituser.aspx" />
+    <Content Include="Files\TestMaster\0ff6624c-2207-4fc0-9e01-a4b86d6535f2.jpg" />
+    <Content Include="Files\TestMaster\3.gif" />
+    <Content Include="Files\TestMaster\2.gif" />
+    <Content Include="Files\TestMaster\b8194df0-ce87-4c3d-9506-30eda76c0af1.jpg" />
     <Content Include="forgot.aspx" />
     <Content Include="logout.aspx" />
     <Content Include="reports.aspx" />
@@ -461,6 +467,20 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="edittestmaster.aspx.cs">
+      <DependentUpon>edittestmaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edittestmaster.aspx.designer.cs">
+      <DependentUpon>edittestmaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="edittestype.aspx.cs">
+      <DependentUpon>edittestype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edittestype.aspx.designer.cs">
+      <DependentUpon>edittestype.aspx</DependentUpon>
     </Compile>
     <Compile Include="edituser.aspx.cs">
       <DependentUpon>edituser.aspx</DependentUpon>
@@ -953,9 +973,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Files\TestMaster\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

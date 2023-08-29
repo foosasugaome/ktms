@@ -33,7 +33,7 @@
                                     <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit"></asp:LinkButton>
                                 </div>
                                 <div class="col-sm-8">
-                                    <asp:LinkButton ID="lnkAddUser" CssClass="btn btn-success m-1 float-right" runat="server" Text="Add User" PostBackUrl="~/adduser.aspx" />
+                                    <asp:LinkButton ID="lnkAddUser" CssClass="btn btn-primary ripple m-1 float-right" runat="server" Text="Add Test Type" PostBackUrl="~/addtesttype.aspx" />
                                 </div>
 
                             </div>
@@ -59,7 +59,7 @@
                                                 <%--<span class="badge badge-danger">Not Active</span>--%>
                                             </td>
                                             <td>
-                                                <a href="edituser.aspx" class="text-success mr-2">
+                                                <a href="edittestype.aspx" class="text-success mr-2">
                                                     <i class="nav-icon i-Pen-2 font-weight-bold"></i>
                                                 </a>
                                                 <a href="#" onclick="javascript:return ConfirmDelete()" class="text-danger mr-2">
@@ -76,7 +76,7 @@
                                                 <%--<span class="badge badge-danger">Not Active</span>--%>
                                             </td>
                                             <td>
-                                                <a href="edituser.aspx" class="text-success mr-2">
+                                                <a href="edittestype.aspx" class="text-success mr-2">
                                                     <i class="nav-icon i-Pen-2 font-weight-bold"></i>
                                                 </a>
                                                 <a href="#" onclick="javascript:return ConfirmDelete()" class="text-danger mr-2">

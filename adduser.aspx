@@ -64,7 +64,6 @@
                         <div class="col-md-6 form-group mb-3">
                             <asp:Label Text="User Picture" runat="server" CssClass="form-label" />
                             <div class="custom-file">
-                            <label for="fuUserPicture" class="custom-file-label">Upload Picture</label>
                             <asp:FileUpload ID="fuUserPicture" CssClass="form-control form-control" runat="server" /> 
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="fuUserPicture" runat="server" ErrorMessage="Please upload picture" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>

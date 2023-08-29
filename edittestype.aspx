@@ -1,15 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="addtesttype.aspx.cs" Inherits="ktms.addtesttype" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="edittestype.aspx.cs" Inherits="ktms.edittestype" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="main-content-wrap sidenav-open d-flex flex-column">
+
+        <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
-            <h1>Add Test Type</h1>
-            <ul>
-                <li><a href="#">Form</a></li>
-                <li>Add Test Type</li>
-            </ul>
+            <h1>Edit Test Type</h1>            
         </div>
 
         <div class="separator-breadcrumb border-top"></div>
@@ -18,7 +14,7 @@
             <div class="col-md-12">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <div class="card-title mb-3">Add Test Type</div>
+                        <div class="card-title mb-3">Edit Test Type</div>
 
                         <div class="row">                            
 
@@ -59,4 +55,5 @@
 
         </div>
         </div>
+
 </asp:Content>

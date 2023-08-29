@@ -33,7 +33,7 @@
                                     <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit"></asp:LinkButton>
                                 </div>
                                 <div class="col-sm-8">
-                                    <asp:LinkButton ID="lnkAddUser" CssClass="btn btn-success m-1 float-right" runat="server" Text="Add User" PostBackUrl="~/adduser.aspx" />
+                                    <asp:LinkButton ID="lnkAddUser" CssClass="btn btn-primary ripple m-1 float-right" runat="server" Text="Add User" PostBackUrl="~/adduser.aspx" />
                                 </div>
 
                             </div>
