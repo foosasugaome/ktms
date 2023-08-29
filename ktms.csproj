@@ -101,7 +101,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addtestmaster.aspx" />
+    <Content Include="addtesttype.aspx" />
     <Content Include="adduser.aspx" />
+    <Content Include="allocatetest.aspx" />
     <Content Include="assets\fonts\iconsmind\iconsmind.css" />
     <Content Include="assets\fonts\iconsmind\iconsmind.svg" />
     <Content Include="assets\images\Angular_Icon.png" />
@@ -401,14 +404,35 @@
     <Content Include="assets\styles\vendor\sweetalert2.min.css" />
     <Content Include="assets\styles\vendor\toastr.css" />
     <Content Include="assets\styles\vendor\toastr.min.css" />
+    <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="edituser.aspx" />
     <Content Include="forgot.aspx" />
+    <Content Include="logout.aspx" />
+    <Content Include="reports.aspx" />
     <Content Include="signin.aspx" />
     <Content Include="signup.aspx" />
+    <Content Include="testmasterlist.aspx" />
+    <Content Include="testtypelist.aspx" />
     <Content Include="userlist.aspx" />
+    <Content Include="usertest.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addtestmaster.aspx.cs">
+      <DependentUpon>addtestmaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addtestmaster.aspx.designer.cs">
+      <DependentUpon>addtestmaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addtesttype.aspx.cs">
+      <DependentUpon>addtesttype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addtesttype.aspx.designer.cs">
+      <DependentUpon>addtesttype.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adduser.aspx.cs">
       <DependentUpon>adduser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -416,13 +440,34 @@
     <Compile Include="adduser.aspx.designer.cs">
       <DependentUpon>adduser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="allocatetest.aspx.cs">
+      <DependentUpon>allocatetest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="allocatetest.aspx.designer.cs">
+      <DependentUpon>allocatetest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="authentication.cs" />
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="edituser.aspx.cs">
+      <DependentUpon>edituser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edituser.aspx.designer.cs">
+      <DependentUpon>edituser.aspx</DependentUpon>
     </Compile>
     <Compile Include="forgot.aspx.cs">
       <DependentUpon>forgot.aspx</DependentUpon>
@@ -438,7 +483,21 @@
     <Compile Include="Landing.Master.designer.cs">
       <DependentUpon>Landing.Master</DependentUpon>
     </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reports.aspx.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reports.aspx.designer.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="signin.aspx.cs">
       <DependentUpon>signin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -460,12 +519,33 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="testmasterlist.aspx.cs">
+      <DependentUpon>testmasterlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testmasterlist.aspx.designer.cs">
+      <DependentUpon>testmasterlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testtypelist.aspx.cs">
+      <DependentUpon>testtypelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testtypelist.aspx.designer.cs">
+      <DependentUpon>testtypelist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="userlist.aspx.cs">
       <DependentUpon>userlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="userlist.aspx.designer.cs">
       <DependentUpon>userlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usertest.aspx.cs">
+      <DependentUpon>usertest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usertest.aspx.designer.cs">
+      <DependentUpon>usertest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -872,6 +952,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\TestMaster\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

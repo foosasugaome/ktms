@@ -11,7 +11,7 @@ namespace ktms
 {
 
 
-    public partial class adduser
+    public partial class edituser
     {
 
         /// <summary>

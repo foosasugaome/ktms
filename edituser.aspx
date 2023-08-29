@@ -1,13 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="adduser.aspx.cs" Inherits="ktms.adduser" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="edituser.aspx.cs" Inherits="ktms.edituser" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="main-content-wrap sidenav-open d-flex flex-column">
+        <div class="main-content-wrap sidenav-open d-flex flex-column">
     <div class="breadcrumb">
         <h1>Users</h1>
         <ul>
             <li><a href="#">Form</a></li>
-            <li>Add Users</li>
+            <li>Edit Users</li>
         </ul>
     </div>
 
@@ -17,11 +17,11 @@
         <div class="col-md-12">
             <div class="card mb-4">
                 <div class="card-body">
-                    <div class="card-title mb-3">Add User</div>
+                    <div class="card-title mb-3">Edit User</div>
 
                     <div class="row">
                         <div class="col-md-6 form-group mb-3">                                
-                            <asp:Label AssociatedControlID="txtFirstName" Text="First name" runat="server" CssClass="form-label" />
+                            <asp:Label AssociatedControlID="txtFirstName" runat="server" CssClass="form-label" />
                             <asp:TextBox ID="txtFirstName" CssClass="form-control" placeholder="Enter first name" runat="server" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter first name." ControlToValidate="txtFirstName" CssClass="invalid-feedback" Display="Dynamic" />
                         </div>

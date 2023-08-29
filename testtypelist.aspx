@@ -1,14 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="userlist.aspx.cs" Inherits="ktms.userlist" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="testtypelist.aspx.cs" Inherits="ktms.testtypelist" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
-            <h1>User List</h1>
+            <h1>Test Type List</h1>
             <%--<ul>
-                <li><a href="#">Users</a></li>
-                <li>User List</li>
+                <li><a href="#">Componets</a></li>
+                <li>Table</li>
             </ul>--%>
         </div>
 
@@ -21,7 +21,7 @@
                 <div class="card text-left">
 
                     <div class="card-body">
-                        <h4 class="card-title mb-3">User List</h4>
+                        <h4 class="card-title mb-3">Test Type List</h4>
                         <%--<p>Use <code>.table-striped</code> to add zebra-striping to any table rowwithin the <code>&lt;tbody&gt;</code>.</p>--%>
                         <div>
 
@@ -42,12 +42,8 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">First Name</th>
-                                            <th scope="col">Lasst Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Avatar</th>
-                                            <th scope="col">User Type</th>
+                                            <th scope="col">Test Type</th>
+                                            <th scope="col">Language</th>
                                             <th scope="col">Created On</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Action</th>
@@ -56,14 +52,8 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>Norman</td>
-                                            <td>Teodoro</td>
-                                            <td>norman@gmail.com</td>
-                                            <td>24624625262</td>
-                                            <td>
-                                                <img class="rounded-circle m-0 avatar-sm-table " src="/assets/images/faces/1.jpg" alt="">
-                                            </td>
-                                            <td>Admin</td>
+                                            <td>Class 5</td>
+                                            <td>English</td>
                                             <td>Aug 24, 2023</td>
                                             <td><span class="badge badge-success">Active</span>
                                                 <%--<span class="badge badge-danger">Not Active</span>--%>
@@ -78,15 +68,9 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row">2</th>
-                                            <td>Smith</td>
-                                            <td>Doe</td>
-                                            <td>Smith@gmail.com</td>
-                                            <td>24624625262</td>
-                                            <td>
-                                                <img class="rounded-circle m-0 avatar-sm-table " src="/assets/images/faces/1.jpg" alt="">
-                                            </td>
-                                            <td>Normal User</td>
+                                            <th scope="row">1</th>
+                                            <td>Class 5</td>
+                                            <td>French</td>
                                             <td>Aug 24, 2023</td>
                                             <td><span class="badge badge-success">Active</span>
                                                 <%--<span class="badge badge-danger">Not Active</span>--%>
