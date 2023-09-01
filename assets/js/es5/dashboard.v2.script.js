@@ -13,7 +13,7 @@ $(document).ready(function () {
         var echart4 = echarts.init(echartElem4);
         echart4.setOption(_extends({}, echartOptions.lineNoAxis, {
             series: [{
-                data: [40, 80, 20, 90, 30, 80, 40],
+                data: [4, 80, 20, 90, 30, 80, 40],
                 lineStyle: {
                     color: 'rgba(102, 51, 153, .86)',
                     width: 3,

@@ -13,17 +13,16 @@
      <div class="main-content-wrap sidenav-open d-flex flex-column">
      <div class="main-content">
          <div class="breadcrumb">
-             <h1>Hello <%=Session["username"] %>!</h1>
-             <ul>
-                 <li><a href="">UI Kits</a></li>
-                 <li>Blank Page</li>
-             </ul>
+             <h1>Hello <asp:Label ID="lblFullName" runat="server" /></h1>
+           
          </div>
 
          <div class="separator-breadcrumb border-top"></div>
 
          <!-- content goes here -->
-
+         <div>
+             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+         </div>
      </div>
      <!-- end of main content -->    
  </div>

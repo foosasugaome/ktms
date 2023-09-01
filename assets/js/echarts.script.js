@@ -108,17 +108,15 @@ $(document).ready(function() {
             },
 
             series: [{
-                    name: 'Sales by Country',
+                    name: 'Test Type',
                     type: 'pie',
                     radius: '60%',
                     center: ['50%', '50%'],
                     data: [
-                        { value: 535, name: 'USA' },
-                        { value: 310, name: 'Brazil' },
-                        { value: 234, name: 'France' },
-                        { value: 155, name: 'BD' },
-                        { value: 130, name: 'UK' },
-                        { value: 348, name: 'India' }
+                        { value: 535, name: 'Class 7 -  French' },
+                        { value: 310, name: 'Class 5 - English' },
+                        { value: 234, name: 'Class 5 - French' },
+                        { value: 155, name: 'Class 7 - English' }
                     ],
                     itemStyle: {
                         emphasis: {

@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="assets/styles/vendor/perfect-scrollbar.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/vendor/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/es5/script.min.js"></script>
+    <script src="assets/js/es5/sidebar.large.script.min.js"></script>
 </head>
 
 <body class="text-left">
@@ -25,7 +30,8 @@
         <div class="app-admin-wrap layout-sidebar-large">
             <div class="main-header">
                 <div class="logo">
-                    <img src="./assets/images/logo.png" alt="">
+                    <a href="default.aspx">
+                        <img src="./assets/images/logo.png" alt="Knowledge Test Management System"></a>
                 </div>
 
                 <div class="menu-toggle">
@@ -36,7 +42,7 @@
 
                 <div>
                     <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-                </div>               
+                </div>
 
                 <div style="margin: auto"></div>
 
@@ -115,16 +121,16 @@
                     <!-- User avatar dropdown -->
                     <div class="dropdown">
                         <div class="user col align-self-end">
-                            <img src="./assets/images/faces/1.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="./assets/images/faces/selfie_small.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                 <div class="dropdown-header">
                                     <i class="i-Lock-User mr-1"></i>
                                     <asp:Label ID="lblCurrentUser" runat="server" Text=""></asp:Label>
                                 </div>
-                                <a class="dropdown-item">Account settings</a>
-                                <a class="dropdown-item">Billing history</a>
-                                <asp:LinkButton ID="lbSignOut" runat="server" OnClick="lbSignOut_Click" CssClass="dropdown-item">Sign out</asp:LinkButton>
+                                <asp:LinkButton ID="lnkMyProfile" runat="server" CssClass="dropdown-item" Text="My Profile" PostBackUrl="~/myprofile.aspx" />
+                                <asp:LinkButton ID="lnkChangePassword" runat="server" CssClass="dropdown-item" Text="Change Password" PostBackUrl="~/changepassword.aspx" />
+                                <asp:LinkButton ID="lnkSignOut" runat="server" CssClass="dropdown-item" Text="Sign out" PostBackUrl="~/signout.aspx" />
 
                             </div>
                         </div>
@@ -204,11 +210,8 @@
         </div>
         <!--=============== End app-admin-wrap ================-->
     </form>
-    <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/vendor/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/es5/script.min.js"></script>
-    <script src="assets/js/es5/sidebar.large.script.min.js"></script>
+
+
 
 </body>
 

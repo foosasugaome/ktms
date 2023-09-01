@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -25,19 +26,45 @@ namespace ktms
             // Get user credentials
             string strUsername = txtEmail.Text;
             string strPassword = txtPassword.Text;
-
+            string strData = "Admin, Norman Teodoro";         // This will be userData of the cookie   
+            
             // Authenticate user using a function in the same file
             //bool isAuthenticated = ValidateUser(strUsername, strPassword);
 
-            // Authenticat using a separate class file "authentication.cs"
+            // Authenticate using a separate class file "authentication.cs"
             Authentication authUser = new Authentication();
             bool isAuthenticated = authUser.ValidateUser(strUsername, strPassword);
             
             if (isAuthenticated)
             {
-                // Set the authentication cookie and redirect to the home page
-                FormsAuthentication.SetAuthCookie(strUsername, false);
+
                 Session["SessionID"] = Guid.NewGuid().ToString(); // Generate a new session ID
+                // Add the sessionID to userData cookie
+                strData += "," + Session["SessionID"];
+
+                // Create a FormsAuthentication ticket with user data
+                FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
+                    1,                      // Version number
+                    strUsername,               // Username
+                    DateTime.Now,           // Issue date
+                    DateTime.Now.AddHours(1), // Expiration date
+                    false,                  // Whether the cookie is persistent
+                    strData                   // User data                                    
+                );
+
+                // Encrypt the authentication ticket
+                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+
+                // Create a cookie containing the encrypted ticket
+                HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+
+                // Add the cookie to the response
+                HttpContext.Current.Response.Cookies.Add(authCookie);
+                               
+
+                // Set the authentication cookie and redirect to the home page
+                //FormsAuthentication.SetAuthCookie(strUsername, false);
+                
                 Response.Redirect("default.aspx");
             }
             else
@@ -59,7 +86,7 @@ namespace ktms
             //} 
         }
         
-        //public static bool ValidateUser(string username, string password)
+        //private bool ValidateUser(string username, string password)
         //{
         //    // For testing purposes, let's consider a simple hardcoded user/password combination
         //    string validUsername = "norman@gmail.com";

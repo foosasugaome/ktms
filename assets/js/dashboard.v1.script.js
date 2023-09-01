@@ -23,7 +23,7 @@ $(document).ready(function() {
             },
             xAxis: [{
                 type: 'category',
-                data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                data: ['Test', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
                 axisTick: {
                     alignWithLabel: true
                 },
@@ -54,40 +54,37 @@ $(document).ready(function() {
             ],
 
             series: [{
-                    name: 'Online',
-                    data: [35000, 69000, 22500, 60000, 50000, 50000, 30000, 80000, 70000, 60000, 20000, 30005],
-                    label: { show: false, color: '#0168c1' },
-                    type: 'bar',
-                    barGap: 0,
-                    color: '#bcbbdd',
-                    smooth: true,
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowOffsetY: -2,
-                            shadowColor: 'rgba(0, 0, 0, 0.3)'
-                        }
-                    }
-                },
-                {
-                    name: 'Offline',
-                    data: [45000, 82000, 35000, 93000, 71000, 89000, 49000, 91000, 80200, 86000, 35000, 40050],
-                    label: { show: false, color: '#639' },
-                    type: 'bar',
-                    color: '#7569b3',
-                    smooth: true,
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowOffsetY: -2,
-                            shadowColor: 'rgba(0, 0, 0, 0.3)'
-                        }
+                name: 'Pass',
+                data: [15, 69, 22, 60, 50, 50, 30, 80, 70, 60, 20, 30],
+                label: { show: false, color: '#0168c1' },
+                type: 'bar',
+                barGap: 0,
+                color: '#bcbbdd',
+                smooth: true,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: -2,
+                        shadowColor: 'rgba(0, 0, 0, 0.3)'
                     }
                 }
-
-            ]
+            }, {
+                name: 'Fail',
+                data: [45, 82, 35, 93, 71, 89, 49, 91, 82, 86, 35, 40],
+                label: { show: false, color: '#639' },
+                type: 'bar',
+                color: '#7569b3',
+                smooth: true,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: -2,
+                        shadowColor: 'rgba(0, 0, 0, 0.3)'
+                    }
+                }
+            }]
         });
         $(window).on('resize', function() {
             setTimeout(() => {
@@ -108,17 +105,15 @@ $(document).ready(function() {
             },
 
             series: [{
-                    name: 'Sales by Country',
+                    name: 'Test Types',
                     type: 'pie',
                     radius: '60%',
                     center: ['50%', '50%'],
                     data: [
-                        { value: 535, name: 'USA' },
-                        { value: 310, name: 'Brazil' },
-                        { value: 234, name: 'France' },
-                        { value: 155, name: 'BD' },
-                        { value: 130, name: 'UK' },
-                        { value: 348, name: 'India' }
+                        { value: 535, name: 'Class 7 - French' },
+                        { value: 310, name: 'Class 5 - English' },
+                        { value: 234, name: 'Class 5 - French' },
+                        { value: 155, name: 'Class 7 - English' }                        
                     ],
                     itemStyle: {
                         emphasis: {

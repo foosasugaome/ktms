@@ -41,11 +41,11 @@ $(document).ready(function () {
             yAxis: [{
                 type: 'value',
                 axisLabel: {
-                    formatter: '${value}'
+                    formatter: '{value}'
                 },
                 min: 0,
-                max: 100000,
-                interval: 25000,
+                max: 100,
+                interval: 5,
                 axisLine: {
                     show: false
                 },
@@ -56,8 +56,8 @@ $(document).ready(function () {
             }],
 
             series: [{
-                name: 'Online',
-                data: [35000, 69000, 22500, 60000, 50000, 50000, 30000, 80000, 70000, 60000, 20000, 30005],
+                name: 'Pass',
+                data: [15, 69, 22, 60, 50, 50, 30, 80, 70, 60, 20, 30],
                 label: { show: false, color: '#0168c1' },
                 type: 'bar',
                 barGap: 0,
@@ -72,8 +72,8 @@ $(document).ready(function () {
                     }
                 }
             }, {
-                name: 'Offline',
-                data: [45000, 82000, 35000, 93000, 71000, 89000, 49000, 91000, 80200, 86000, 35000, 40050],
+                name: 'Fail',
+                data: [45, 82, 35, 93, 71, 89, 49, 91, 82, 86, 35, 40],
                 label: { show: false, color: '#639' },
                 type: 'bar',
                 color: '#7569b3',

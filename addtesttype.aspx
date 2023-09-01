@@ -16,11 +16,14 @@
 
         <div class="row">
             <div class="col-md-12">
+
                 <div class="card mb-4">
+
                     <div class="card-body">
+                    
                         <div class="card-title mb-3">Add Test Type</div>
 
-                        <div class="row">                            
+                        <div class="row">
 
                             <div class="col-md-6 form-group mb-3">
                                 <asp:Label AssociatedControlID="ddlTestType" Text="Test Type" runat="server" CssClass="form-label" />
@@ -41,7 +44,7 @@
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" InitialValue="0" runat="server" ErrorMessage="Please select language" ControlToValidate="ddlLanguage" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
-                           
+
 
                             <div class="col-md-6 form-group mb-3">
                             </div>
@@ -54,9 +57,11 @@
                         </div>
 
                     </div>
+
                 </div>
+
             </div>
 
         </div>
-        </div>
+    </div>
 </asp:Content>
