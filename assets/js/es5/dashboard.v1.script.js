@@ -13,7 +13,7 @@ $(document).ready(function () {
                 borderRadius: 0,
                 orient: 'horizontal',
                 x: 'right',
-                data: ['Online', 'Offline']
+                data: ['Pass', 'Fail']
             },
             grid: {
                 left: '8px',
@@ -45,7 +45,7 @@ $(document).ready(function () {
                 },
                 min: 0,
                 max: 100,
-                interval: 5,
+                interval: 10,
                 axisLine: {
                     show: false
                 },
@@ -107,11 +107,11 @@ $(document).ready(function () {
             },
 
             series: [{
-                name: 'Sales by Country',
+                name: 'Test Types',
                 type: 'pie',
                 radius: '60%',
                 center: ['50%', '50%'],
-                data: [{ value: 535, name: 'USA' }, { value: 310, name: 'Brazil' }, { value: 234, name: 'France' }, { value: 155, name: 'BD' }, { value: 130, name: 'UK' }, { value: 348, name: 'India' }],
+                data: [{ value: 535, name: 'Class 5 - English' }, { value: 310, name: 'Class 7 - English' }, { value: 234, name: 'Class 5 - French' }, { value: 234, name: 'Class 7 - French' }],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,

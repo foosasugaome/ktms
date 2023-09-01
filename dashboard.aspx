@@ -2,10 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">    
     <div class="main-content-wrap sidenav-open d-flex flex-column">
-
+        <div id="activePage" hidden>dashboard</div>
         <div class="breadcrumb">
             <h1 class="mr-2">Dashboard</h1>
 
@@ -112,13 +111,10 @@
         </div>
 
     </div>
-
     <script src="assets/js/vendor/echarts.min.js"></script>
-
-    <script src="assets/js/es5/echart.options.min.js"></script>
-    <script src="assets/js/es5/dashboard.v1.script.min.js"></script>
-
+    <script src="assets/js/es5/echart.options.js"></script>
+    <script src="assets/js/es5/dashboard.v1.script.js"></script>
     <script src="assets/js/vendor/datatables.min.js"></script>
-    <script src="assets/js/es5/dashboard.v2.script.min.js"></script>
+    <script src="assets/js/es5/dashboard.v2.script.js"></script>
 
 </asp:Content>

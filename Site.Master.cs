@@ -50,10 +50,10 @@ namespace ktms
             }
 
 
-            //if (Session["SessionID"] == null)
-            //{
-            //    Response.Redirect("signin.aspx");
-            //}
+            if (Session["SessionID"] == null)
+            {
+                Response.Redirect("signin.aspx");
+            }
 
         }      
     }

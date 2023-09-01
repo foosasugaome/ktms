@@ -12,7 +12,7 @@ namespace ktms
         protected void Page_Load(object sender, EventArgs e)
         {            
             lblFullName.Text = (string)Session["fullName"];
-            Label1.Text = "Expiration : " + Session["Expiration"] + "<br /> User Data : " + Session["userData"] + "<br /> Session ID : " + Session["SessionID"];
+            // Label1.Text = "Expiration : " + Session["Expiration"] + "<br /> User Data : " + Session["userData"] + "<br /> Session ID : " + Session["SessionID"];
         }
     }
 }

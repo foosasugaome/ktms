@@ -1,13 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="edittestype.aspx.cs" Inherits="ktms.edittestype" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-        <div class="main-content-wrap sidenav-open d-flex flex-column">
+    <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
-            <h1>Edit Test Type</h1>            
+            <h1>Edit Test Type</h1>
         </div>
-
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="testtypelist.aspx">Test Type</a></li>
+                <li>Edit Test Type</li>
+            </ul>
+        </div>
         <div class="separator-breadcrumb border-top"></div>
 
         <div class="row">
@@ -16,7 +22,7 @@
                     <div class="card-body">
                         <div class="card-title mb-3">Edit Test Type</div>
 
-                        <div class="row">                            
+                        <div class="row">
 
                             <div class="col-md-6 form-group mb-3">
                                 <asp:Label AssociatedControlID="ddlTestType" Text="Test Type" runat="server" CssClass="form-label" />
@@ -37,7 +43,7 @@
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" InitialValue="0" runat="server" ErrorMessage="Please select language" ControlToValidate="ddlLanguage" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
-                           
+
 
                             <div class="col-md-6 form-group mb-3">
                             </div>
@@ -54,6 +60,6 @@
             </div>
 
         </div>
-        </div>
+    </div>
 
 </asp:Content>

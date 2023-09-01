@@ -22,7 +22,10 @@ namespace ktms
             }
             else
             {
-                return false;
+                // Users can enter whatever email or password for now
+                //return false;
+
+                return true;
             }
         }
         private bool VefifyHash(string password, string validPassword)

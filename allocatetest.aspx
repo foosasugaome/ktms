@@ -3,14 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <div id="activePage" hidden>allocatetest</div>
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
-            <h1>Allocate Test</h1>
-            <ul>
-                <li><a href="#">Form</a></li>
-                <li>Add Test Type</li>
-            </ul>
+            <h1>Allocate Test</h1>            
         </div>
 
         <div class="separator-breadcrumb border-top"></div>

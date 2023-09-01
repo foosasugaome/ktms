@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="activePage" hidden>userlist</div>
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
             <h1>User List</h1>

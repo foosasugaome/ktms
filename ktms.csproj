@@ -422,7 +422,6 @@
     <Content Include="logout.aspx" />
     <Content Include="myprofile.aspx" />
     <Content Include="reports.aspx" />
-    <Content Include="secretpage.aspx" />
     <Content Include="signin.aspx" />
     <Content Include="signout.aspx" />
     <Content Include="signup.aspx" />
@@ -469,6 +468,7 @@
     <Compile Include="changepassword.aspx.designer.cs">
       <DependentUpon>changepassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="conn.cs" />
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -539,13 +539,6 @@
     </Compile>
     <Compile Include="reports.aspx.designer.cs">
       <DependentUpon>reports.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="secretpage.aspx.cs">
-      <DependentUpon>secretpage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="secretpage.aspx.designer.cs">
-      <DependentUpon>secretpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="signin.aspx.cs">
       <DependentUpon>signin.aspx</DependentUpon>

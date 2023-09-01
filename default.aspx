@@ -21,7 +21,7 @@
 
          <!-- content goes here -->
          <div>
-             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+             <asp:Label ID="Label1" runat="server" Text="">This could serve as the landing page for normal users since they may not have access to the Dashboard.</asp:Label>
          </div>
      </div>
      <!-- end of main content -->    
