@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ktms.Site" %>
 
 <!DOCTYPE html>
-<html lang="en" dir="">
+<html lang="en" dir="auto">
 
 <head runat="server">
     <meta charset="UTF-8">

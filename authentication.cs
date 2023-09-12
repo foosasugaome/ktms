@@ -1,36 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using BCrypt.Net;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.Helpers;
 
 namespace ktms
 {
     public class Authentication
     {
-        public bool ValidateUser(string username, string password)
-        {
-            // For testing purposes, let's consider a simple hardcoded user/password combination
-            string validUsername = "norman@gmail.com";
-            string validPassword = "$2a$11$uhhaxkyx26TWOrvC1pICf.Y2aQ.Sku4ovMxgkfzUCeCFxCLkb334a";
-            
-            
-            // Compare the provided username and password with the valid credentials
-            if (username == validUsername && VefifyHash(password, validPassword))
-            {
-                return true;
-            }
-            else
-            {
-                // Users can enter whatever email or password for now
-                //return false;
+        private readonly string strConn = ConfigurationManager.AppSettings["sqlConn"];
 
-                return true;
-            }
-        }
-        private bool VefifyHash(string password, string validPassword)
+        public (bool IsAuthenticated, UserInfo UserInfo) ValidateUser(string username, string password)
         {
-            return BCrypt.Net.BCrypt.Verify(password, validPassword);
+            UserInfo userInfo = null;
+
+            string query = "SELECT [ID],[Email], [FirstName], [LastName], [Password], [UserType] FROM [dbo].[USERS] WHERE [Email] = @Email AND Status = 1";
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@Email", username);
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string storedPasswordHash = reader["Password"].ToString();
+                        if (VerifyHash(password, storedPasswordHash))
+                        {
+                            userInfo = new UserInfo
+                            {
+                                ID = Convert.ToInt32(reader["ID"]),
+                                Email = reader["Email"].ToString(),
+                                FirstName = reader["FirstName"].ToString(),
+                                LastName = reader["LastName"].ToString(),
+                                UserType = reader["UserType"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+
+            bool isAuthenticated = userInfo != null;
+            return (isAuthenticated, userInfo);
         }
+
+        private bool VerifyHash(string password, string storedPasswordHash)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, storedPasswordHash);
+        }
+
     }
 }

@@ -23,7 +23,7 @@
 
                     <div class="card-body">
                         <h4 class="card-title mb-3">Test Type List</h4>
-                        <%--<p>Use <code>.table-striped</code> to add zebra-striping to any table rowwithin the <code>&lt;tbody&gt;</code>.</p>--%>
+
                         <div>
 
                             <div class="row">
@@ -31,62 +31,44 @@
                                     <asp:TextBox placeholder="Search" ID="txtSearch" CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit"></asp:LinkButton>
+                                    <asp:DropDownList ID="ddlTestTypeStatus" CssClass="form-control" runat="server">
+                                        <asp:ListItem Text="All" Value="-1" />
+                                        <asp:ListItem Text="Active" Value="1" />
+                                        <asp:ListItem Text="Deleted" Value="0" />
+                                    </asp:DropDownList>
                                 </div>
-                                <div class="col-sm-8">
+                                <div class="col-sm-2">
+                                    <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="lnkSubmit_Click"></asp:LinkButton>
+                                </div>
+                                <div class="col-sm-6">
                                     <asp:LinkButton ID="lnkAddUser" CssClass="btn btn-primary ripple m-1 float-right" runat="server" Text="Add Test Type" PostBackUrl="~/addtesttype.aspx" />
                                 </div>
 
                             </div>
                             <div class="col-sm-12 table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Test Type</th>
-                                            <th scope="col">Language</th>
-                                            <th scope="col">Created On</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Class 5</td>
-                                            <td>English</td>
-                                            <td>Aug 24, 2023</td>
-                                            <td><span class="badge badge-success">Active</span>
-                                                <%--<span class="badge badge-danger">Not Active</span>--%>
-                                            </td>
-                                            <td>
-                                                <a href="edittestype.aspx" class="text-success mr-2">
+                                <asp:Label Text="" ID="lblResult" CssClass="alert-success" runat="server" />
+                                <asp:GridView runat="server" ID="gvData" DataKeyNames="ID" CssClass="table table-striped m-1" AutoGenerateColumns="false" GridLines="None" EmptyDataText="There are no records to display.">
+                                    <Columns>
+                                        <asp:BoundField HeaderText="ID" DataField="ID" SortExpression="ID" />                                        
+                                        <asp:BoundField HeaderText="Test Type" DataField="TestType" />
+                                        <asp:BoundField HeaderText="Language" DataField="Language" />
+                                        <asp:BoundField HeaderText="Created On" DataField="CreatedOn" />
+                                        <asp:TemplateField HeaderText="Status">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="lnkChangeStatus" CommandArgument='<%#Eval("ID") %>' Text='<%#Eval("Status")%>' runat="server" OnClick="lnkChangeStatus_Click" CssClass="text-danger mr2">        
+                                                </asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="lnkEdit" CommandArgument='<%#Eval("ID") %>' runat="server" CssClass="text-success mr-2" OnClick="lnkEdit_Click"> 
                                                     <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                                </a>
-                                                <a href="#" onclick="javascript:return ConfirmDelete()" class="text-danger mr-2">
-                                                    <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Class 5</td>
-                                            <td>French</td>
-                                            <td>Aug 24, 2023</td>
-                                            <td><span class="badge badge-success">Active</span>
-                                                <%--<span class="badge badge-danger">Not Active</span>--%>
-                                            </td>
-                                            <td>
-                                                <a href="edittestype.aspx" class="text-success mr-2">
-                                                    <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                                </a>
-                                                <a href="#" onclick="javascript:return ConfirmDelete()" class="text-danger mr-2">
-                                                    <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                </asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
                     </div>

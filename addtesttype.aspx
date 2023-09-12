@@ -28,23 +28,25 @@
                         <div class="card-title mb-3">Add Test Type</div>
 
                         <div class="row">
-
+                            <div class="col-md-12">
+                                <asp:Label Text="" ID="lblResult" CssClass="alert-success" runat="server" />
+                            </div>
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="ddlTestType" Text="Test Type" runat="server" CssClass="form-label" />
-                                <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control">
-                                    <asp:ListItem Selected="True" Value="0" Text="Select" />
-                                    <asp:ListItem Value="1" Text="Class 5" />
-                                    <asp:ListItem Value="2" Text="Class 7" />
+                                <asp:Label AssociatedControlID="ddlClassType" Text="Test Type" runat="server" CssClass="form-label" />
+                                <asp:DropDownList ID="ddlClassType" runat="server" CssClass="form-control">
+                                    <asp:ListItem Selected="True" Value="" Text="Select" />
+                                    <asp:ListItem Value="Class 5" Text="Class 5" />
+                                    <asp:ListItem Value="Class 7" Text="Class 7" />
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select test type." ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select test type." ControlToValidate="ddlClassType" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
                                 <asp:Label AssociatedControlID="ddlLanguage" Text="Language" runat="server" CssClass="form-label" />
                                 <asp:DropDownList ID="ddlLanguage" runat="server" CssClass="form-control">
                                     <asp:ListItem Selected="True" Value="0" Text="Select" />
-                                    <asp:ListItem Value="1" Text="English" />
-                                    <asp:ListItem Value="2" Text="French" />
+                                    <asp:ListItem Value="English" Text="English" />
+                                    <asp:ListItem Value="French" Text="French" />
                                 </asp:DropDownList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" InitialValue="0" runat="server" ErrorMessage="Please select language" ControlToValidate="ddlLanguage" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
@@ -54,8 +56,8 @@
                             </div>
 
                             <div class="col-md-12">
-                                <asp:LinkButton ID="lnkCancel" CssClass="btn btn-dark float-right m-1" Text="Cancel" runat="server" PostBackUrl="~/testtypelist.aspx" CausesValidation="false" />
-                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" />
+                                <asp:LinkButton ID="lnkCancel" CssClass="btn btn-danger float-right m-1" Text="Cancel" runat="server" PostBackUrl="~/testtypelist.aspx" CausesValidation="false" />
+                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" OnClick="lnkSubmit_Click" />
                             </div>
 
                         </div>

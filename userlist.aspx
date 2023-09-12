@@ -7,6 +7,7 @@
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
             <h1>User List</h1>
+            <asp:Label ID="pageMessage" Text="" runat="server" />
             <%--<ul>
                 <li><a href="#">Users</a></li>
                 <li>User List</li>
@@ -23,7 +24,6 @@
 
                     <div class="card-body">
                         <h4 class="card-title mb-3">User List</h4>
-                        <%--<p>Use <code>.table-striped</code> to add zebra-striping to any table rowwithin the <code>&lt;tbody&gt;</code>.</p>--%>
                         <div>
 
                             <div class="row">
@@ -31,78 +31,55 @@
                                     <asp:TextBox placeholder="Search" ID="txtSearch" CssClass="form-control" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit"></asp:LinkButton>
+                                    <asp:DropDownList ID="ddlStatus" CssClass="form-control" runat="server">
+                                        <asp:ListItem Text="All" Value="-1" />
+                                        <asp:ListItem Text="Active" Value="1" />
+                                        <asp:ListItem Text="Deleted" Value="0" />
+                                    </asp:DropDownList>
+
                                 </div>
-                                <div class="col-sm-8">
+                                <div class="col-sm-2">
+                                    <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="lnkSubmit_Click"></asp:LinkButton>
+                                </div>
+                                <div class="col-sm-6">
                                     <asp:LinkButton ID="lnkAddUser" CssClass="btn btn-primary ripple m-1 float-right" runat="server" Text="Add User" PostBackUrl="~/adduser.aspx" />
                                 </div>
-
                             </div>
-                            <div class="col-sm-12 table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First Name</th>
-                                            <th scope="col">Lasst Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Avatar</th>
-                                            <th scope="col">User Type</th>
-                                            <th scope="col">Created On</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Norman</td>
-                                            <td>Teodoro</td>
-                                            <td>norman@gmail.com</td>
-                                            <td>24624625262</td>
-                                            <td>
-                                                <img class="rounded-circle m-0 avatar-sm-table " src="/assets/images/faces/1.jpg" alt="">
-                                            </td>
-                                            <td>Admin</td>
-                                            <td>Aug 24, 2023</td>
-                                            <td><span class="badge badge-success">Active</span>
-                                                <%--<span class="badge badge-danger">Not Active</span>--%>
-                                            </td>
-                                            <td>
-                                                <a href="edituser.aspx" class="text-success mr-2">
+                            <div class="row">
+                                <div class="col-sm-12 table-responsive">
+                                    <asp:Label Text="" ID="lblResult" CssClass="alert-success" runat="server" />
+                                    <asp:GridView runat="server" ID="gvData" DataKeyNames="ID" CssClass="table table-striped m-1" AutoGenerateColumns="false" GridLines="None" EmptyDataText="There are no records to display.">
+                                        <Columns>
+                                            <asp:BoundField HeaderText="ID" DataField="ID" SortExpression="ID" />
+                                            <asp:TemplateField HeaderText="User Image">
+                                                <ItemTemplate>
+                                                    <asp:Image Width="50px" ImageUrl='<%#Eval("UserImage") %>' runat="server" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField HeaderText="First Name" DataField="FirstName" />
+                                            <asp:BoundField HeaderText="Last Name" DataField="LastName" />
+                                            <asp:BoundField HeaderText="Email" DataField="Email" />
+                                            <asp:BoundField HeaderText="Phone" DataField="Phone" />
+                                            <asp:BoundField HeaderText="User Type" DataField="UserType" />
+                                            <asp:BoundField HeaderText="Created On" DataField="CreatedOn" />
+                                            <asp:TemplateField HeaderText="Status">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="lnkDelete" CommandArgument='<%#Eval("ID") %>' Text='<%#Eval("Status")%>' runat="server" OnClick="lnkDelete_Click" CssClass="text-danger mr2">        
+                                                    </asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="lnkEdit" CommandArgument='<%#Eval("ID") %>' runat="server" CssClass="text-success mr-2" OnClick="lnkEdit_Click">
                                                     <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                                </a>
-                                                <a href="#" onclick="javascript:return ConfirmDelete()" class="text-danger mr-2">
-                                                    <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Smith</td>
-                                            <td>Doe</td>
-                                            <td>Smith@gmail.com</td>
-                                            <td>24624625262</td>
-                                            <td>
-                                                <img class="rounded-circle m-0 avatar-sm-table " src="/assets/images/faces/1.jpg" alt="">
-                                            </td>
-                                            <td>Normal User</td>
-                                            <td>Aug 24, 2023</td>
-                                            <td><span class="badge badge-success">Active</span>
-                                                <%--<span class="badge badge-danger">Not Active</span>--%>
-                                            </td>
-                                            <td>
-                                                <a href="edituser.aspx" class="text-success mr-2">
-                                                    <i class="nav-icon i-Pen-2 font-weight-bold"></i>
-                                                </a>
-                                                <a href="#" onclick="javascript:return ConfirmDelete()" class="text-danger mr-2">
-                                                    <i class="nav-icon i-Close-Window font-weight-bold"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                    </asp:LinkButton>
+
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>                                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,9 +89,9 @@
         <!-- end of col-->
     </div>
 
-    <script>
+   <%-- <script>
         function ConfirmDelete() {
             confirm('This action will delete the data');
         }
-    </script>
+    </script>--%>
 </asp:Content>

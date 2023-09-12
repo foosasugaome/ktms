@@ -45,6 +45,9 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationBlocks.Data.2.0.0\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -409,6 +412,7 @@
     <Content Include="assets\styles\vendor\toastr.css" />
     <Content Include="assets\styles\vendor\toastr.min.css" />
     <Content Include="changepassword.aspx" />
+    <Content Include="code_bin\code_bin.txt" />
     <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
     <Content Include="edittestmaster.aspx" />
@@ -461,6 +465,7 @@
       <DependentUpon>allocatetest.aspx</DependentUpon>
     </Compile>
     <Compile Include="authentication.cs" />
+    <Compile Include="AuthenticationHelper.cs" />
     <Compile Include="changepassword.aspx.cs">
       <DependentUpon>changepassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -468,7 +473,6 @@
     <Compile Include="changepassword.aspx.designer.cs">
       <DependentUpon>changepassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="conn.cs" />
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -582,6 +586,8 @@
     <Compile Include="testtypelist.aspx.designer.cs">
       <DependentUpon>testtypelist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserAuthenticationInfo.cs" />
+    <Compile Include="UserInfo.cs" />
     <Compile Include="userlist.aspx.cs">
       <DependentUpon>userlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -596,6 +602,7 @@
     <Compile Include="usertest.aspx.designer.cs">
       <DependentUpon>usertest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\.DS_Store" />
@@ -1002,7 +1009,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Files\UserPicture\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

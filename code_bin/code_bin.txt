@@ -1,0 +1,176 @@
+﻿            // ** from adduser.aspx.cs **
+            try
+            {
+                string strFileName = string.Empty;
+
+                if (fuUserPicture.HasFile)
+                {
+                    string[] strArray = fuUserPicture.FileName.Split('.');
+                    string strExtension = strArray[strArray.Length - 1];
+                    strFileName = Guid.NewGuid().ToString() + "." + strExtension;
+
+                    string strPath = Server.MapPath("~/Files/UserPicture/") + strFileName;
+                    fuUserPicture.SaveAs(strPath);
+                }
+
+                string strConn = ConfigurationManager.AppSettings["sqlConn"];
+
+                utils utils = new utils();
+
+                string hashedPassword = utils.HashPassword(txtPassword.Text);
+
+                string strQuery = "INSERT INTO [dbo].[Users]([FirstName],[LastName],[Email],[Password],[Phone],[UserType],[UserImage]) " +
+                   "VALUES('" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtEmail.Text + "','" + hashedPassword + "'," +
+                    "'" + txtPhone.Text + "','" + ddlUserType.SelectedValue + "','" + strFileName + "')";
+
+                int intResult = SqlHelper.ExecuteNonQuery(strConn, CommandType.Text, strQuery);
+                if (intResult != 0)
+                {
+                    lblResult.Text = "Data has been save successfully";
+
+                    foreach (Control b in formAddUser.Controls)
+                    {
+                        TextBox c;
+                        if (b is TextBox)
+                        {
+                            c = b as TextBox;
+                            if (c != null)
+                            {
+                                c.Text = string.Empty;
+                            }
+                        }
+                    }
+
+                    ddlUserType.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblResult.Text = ex.Message;
+                throw;
+            }
+
+
+            ------------------------------------------
+
+            //** from edituser.aspx.cs FillData() function
+                        try
+            {
+                string strPath = "~/Files/UserPicture/";
+                string strQuery = "SELECT [ID],[FirstName],[LastName],[Email],[Password],[Phone],[UserType],'" + strPath + "'+[UserImage] as UserImage," +
+                    "[Status],[CreatedOn] FROM [Users] WHERE ID = " + Convert.ToInt32(ViewState["EditUserID"]);
+
+                DataSet ds = SqlHelper.ExecuteDataset(strConn, CommandType.Text, strQuery);
+
+                imgUserPicture.ImageUrl = Convert.ToString(ds.Tables[0].Rows[0]["UserImage"]);
+                txtFirstName.Text = Convert.ToString(ds.Tables[0].Rows[0]["FirstName"]);
+                txtLastName.Text = Convert.ToString(ds.Tables[0].Rows[0]["LastName"]);
+                txtEmail.Text = Convert.ToString(ds.Tables[0].Rows[0]["Email"]);
+                txtPhone.Text = Convert.ToString(ds.Tables[0].Rows[0]["Phone"]);
+                ddlUserType.SelectedValue = Convert.ToString(ds.Tables[0].Rows[0]["UserType"]);
+            }
+            catch (Exception e)
+            {
+                lblResult.Text = "Something went wrong. Try again later.";
+                throw;
+            }
+
+            -----------------------------------------------------
+
+            //** from userlist.aspx.cs
+             LinkButton objLinkButton = (LinkButton)sender;
+            string strID = objLinkButton.CommandArgument.ToString();
+            string strQuery = "UPDATE [USERS] SET STATUS = 0 WHERE ID = " + strID;
+            int intResult = SqlHelper.ExecuteNonQuery(strConn, CommandType.Text, strQuery);
+
+            if (intResult != 0)
+            {
+                lblResult.Text = "User has been deleted successfully.";
+                FillData();
+            }
+            
+        }
+
+        ---------------------------------------------
+        //** from userlist.aspx.cs == FillData()
+
+            
+            string strPath = "~/Files/UserPicture/";
+
+            string strQuery = "SELECT[ID],[FirstName],[LastName],[Email],[Password],[Phone],[UserType],'" + strPath + "'+[UserImage] as UserImage," +
+                "CASE WHEN Status = 1 THEN 'Active' ELSE 'Deleted' END Status,[CreatedOn] FROM [Users] WHERE Status = 1";
+
+            DataSet ds = SqlHelper.ExecuteDataset(strConn, CommandType.Text, strQuery);
+
+            gvData.DataSource = ds;
+            gvData.DataBind();
+
+            ------------------------------------------
+
+            //** from userlist.asp.cs
+
+            private void FillData()
+        {
+            string strPath = "~/Files/UserPicture/";
+            //string strQuery = "SELECT [ID], [FirstName], [LastName], [Email], [Password], [Phone], [UserType], '" + strPath + "' + [UserImage] as UserImage, " +
+            //                  "CASE WHEN [Status] = 1 THEN 'Active' ELSE 'Deleted' END AS [Status], [CreatedOn] FROM [Users] WHERE [Status] = @Status";
+
+            string strQuery = "SELECT [ID], [FirstName], [LastName], [Email], [Password], [Phone], [UserType], '" + strPath + "' + [UserImage] as UserImage, " +
+                              "CASE WHEN [Status] = 1 THEN 'Active' ELSE 'Deleted' END AS [Status], FORMAT([CreatedOn], 'MMM dd yyyy')[CreatedOn] FROM [Users]";
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            using (SqlCommand cmd = new SqlCommand(strQuery, conn))
+            {
+                // Add the parameter to the query
+                //cmd.Parameters.AddWithValue("@Status", 1);
+
+                conn.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                gvData.DataSource = ds;
+                gvData.DataBind();
+            }
+        }
+
+        protected void lnkSubmit_Click(object sender, EventArgs e)
+        {
+            lblResult.Text = string.Empty;
+            string strSearchText = txtSearch.Text.Trim();
+            SearchResultsData(strSearchText);
+
+        }
+
+        private void SearchResultsData(string searchText)
+        {
+            int intStatus = Convert.ToInt32(ddlStatus.SelectedValue.ToString());
+            string strPath = "~/Files/UserPicture/";
+            string strQuery = "SELECT [ID], [FirstName], [LastName], [Email], [Password], [Phone], [UserType], '" + strPath + "' + [UserImage] as UserImage, " +
+                              "CASE WHEN [Status] = 1 THEN 'Active' ELSE 'Deleted' END AS [Status], FORMAT([CreatedOn], 'MMM dd yyyy')[CreatedOn] FROM [Users] " +
+                              "WHERE ([FirstName] LIKE @SearchText OR [LastName] LIKE @SearchText OR [Email] LIKE @SearchText OR [Phone] LIKE @SearchText)";
+
+            if (intStatus == 0 || intStatus == 1)
+            {
+                strQuery += "AND [Status] = @Status";
+            }
+
+            using (SqlConnection conn = new SqlConnection(strConn))
+            using (SqlCommand cmd = new SqlCommand(strQuery, conn))
+            {
+                // Add parameters to the query
+                if (intStatus == 0 || intStatus == 1)
+                {
+                    cmd.Parameters.AddWithValue("@Status", intStatus);
+                }
+                cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+
+                conn.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                gvData.DataSource = ds;
+                gvData.DataBind();
+            }
+        }
