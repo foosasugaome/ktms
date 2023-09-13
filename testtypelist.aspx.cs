@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ktms
@@ -28,19 +24,21 @@ namespace ktms
                 "WHERE (@Status = -1 OR [Status] = @Status) AND ([TestType] LIKE @SearchText OR [Language] LIKE @SearchText)";
 
             using (SqlConnection conn = new SqlConnection(strConn))
-            using (SqlCommand cmd = new SqlCommand(strQuery, conn))
             {
-                cmd.Parameters.AddWithValue("@Status", status);
-                cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+                using (SqlCommand cmd = new SqlCommand(strQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Status", status);
+                    cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
 
-                conn.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
+                    conn.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
 
-                gvData.DataSource = ds;
-                gvData.DataBind();
-                conn.Close();
+                    gvData.DataSource = ds;
+                    gvData.DataBind();
+
+                }
             }
 
 
@@ -62,16 +60,18 @@ namespace ktms
             string strQuery = "UPDATE [dbo].[TestType] SET [Status] = CASE WHEN [Status] = 0 THEN 1 ELSE 0 END WHERE [ID] = @TestTypeID";
 
             using (SqlConnection conn = new SqlConnection(strConn))
-            using (SqlCommand cmd = new SqlCommand(strQuery, conn))
             {
-                cmd.Parameters.AddWithValue("@TestTypeID", strTestTypeID);
-
-                conn.Open();
-                int intResult = cmd.ExecuteNonQuery();
-                if (intResult != 0)
+                using (SqlCommand cmd = new SqlCommand(strQuery, conn))
                 {
-                    lblResult.Text = "Status updated.";
-                    FillData();
+                    cmd.Parameters.AddWithValue("@TestTypeID", strTestTypeID);
+
+                    conn.Open();
+                    int intResult = cmd.ExecuteNonQuery();
+                    if (intResult != 0)
+                    {
+                        lblResult.Text = "Status updated.";
+                        FillData();
+                    }
                 }
             }
 
@@ -79,7 +79,11 @@ namespace ktms
 
         protected void lnkEdit_Click(object sender, EventArgs e)
         {
-
+            lblResult.Text = string.Empty;
+            LinkButton objLinkButton = (LinkButton)sender;
+            string strID = objLinkButton.CommandArgument;
+            Session["editTestTypeID"] = strID;
+            Response.Redirect("edittesttype.aspx");
         }
     }
 }

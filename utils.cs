@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using BCrypt.Net;
 
 namespace ktms
 {
@@ -16,7 +12,7 @@ namespace ktms
             // Generate a salt and hash the password using BCrypt
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
-        public Boolean UserExists(string email)
+        public bool UserExists(string email)
         {
             bool userFound = false;
             string strQuery = "SELECT COUNT(*) FROM [dbo].[Users] WHERE Email = @Email AND Status = 1";

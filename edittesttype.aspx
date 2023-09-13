@@ -1,31 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="addtesttype.aspx.cs" Inherits="ktms.addtesttype" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="edittesttype.aspx.cs" Inherits="ktms.edittesttype" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="activePage" hidden>testtypelist</div>
+
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="breadcrumb">
-            <h1>Add Test Type</h1>
+            <h1>Edit Test Type</h1>
         </div>
-
         <div class="breadcrumb">
             <ul>
                 <li><a href="testtypelist.aspx">Test Type</a></li>
-                <li>Add Test Type</li>
+                <li>Edit Test Type</li>
             </ul>
         </div>
-
         <div class="separator-breadcrumb border-top"></div>
 
         <div class="row">
             <div class="col-md-12">
-
                 <div class="card mb-4">
-
                     <div class="card-body">
-
-                        <div class="card-title mb-3">Add Test Type</div>
+                        <div class="card-title mb-3">Edit Test Type</div>
 
                         <div class="row">
                             <div class="col-md-12">
@@ -33,16 +28,15 @@
                             </div>
                             <div class="col-md-6 form-group mb-3">
                                 <asp:Label AssociatedControlID="txtClassType" Text="" runat="server" CssClass="form-label" />
-                                <asp:TextBox ID="txtClassType" runat="server" CssClass="form-control" />                                
+                                <asp:TextBox ID="txtClassType" runat="server" CssClass="form-control" />
                                 <asp:RequiredFieldValidator ID="rfvClassType" InitialValue="0" runat="server" ErrorMessage="Please select test type." ControlToValidate="txtClassType" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="txtLanguage" Text="Language" runat="server" CssClass="form-label" />  
-                                <asp:Textbox ID="txtLanguage" Text="" runat="server" CssClass="form-control" />
+                                <asp:Label AssociatedControlID="txtLanguage" Text="Language" runat="server" CssClass="form-label" />
+                                <asp:TextBox ID="txtLanguage" Text="" runat="server" CssClass="form-control" />
                                 <asp:RequiredFieldValidator ID="rfvLanguage" InitialValue="0" runat="server" ErrorMessage="Please select language" ControlToValidate="txtLanguage" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
-
 
                             <div class="col-md-6 form-group mb-3">
                             </div>
@@ -55,11 +49,10 @@
                         </div>
 
                     </div>
-
                 </div>
-
             </div>
 
         </div>
     </div>
+
 </asp:Content>

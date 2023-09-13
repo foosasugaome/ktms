@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Web;
 using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ktms
 {
@@ -26,8 +21,6 @@ namespace ktms
             // Get user credentials
             string strUsername = txtEmail.Text;
             string strPassword = txtPassword.Text;
-            // string strData = "Admin, Norman Teodoro";         // This will be userData of the cookie   
-            string strUserData = string.Empty;
 
             // Authenticate using a separate class file "authentication.cs"
             Authentication authenticationHelper = new Authentication();
@@ -38,7 +31,8 @@ namespace ktms
 
                 Session["SessionID"] = Guid.NewGuid().ToString(); // Generate a new session ID
 
-                strUserData = userInfo.ID + "," + userInfo.Email + "," + userInfo.FirstName + "," + userInfo.LastName + "," + userInfo.UserType;
+                // string strData = "Admin, Norman Teodoro";         // This will be userData of the cookie   
+                string strUserData = userInfo.ID + "," + userInfo.Email + "," + userInfo.FirstName + "," + userInfo.LastName + "," + userInfo.UserType;
 
                 // Create a FormsAuthentication ticket with user data
                 FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(

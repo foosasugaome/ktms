@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Web;
-using System.Web.Security;
 
 namespace ktms
 {
@@ -8,7 +6,7 @@ namespace ktms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
 
             //if (!AuthenticationHelper.IsUserAuthenticated())
             //{
@@ -19,12 +17,12 @@ namespace ktms
 
             if (userAuthInfo != null)
             {
-                string userName = userAuthInfo.UserName;
-                DateTime expiration = userAuthInfo.Expiration;
-                string userData = userAuthInfo.UserData;
+                //userAuthInfo.UserName;
+                //userAuthInfo.Expiration;
+                //userAuthInfo.UserData;
                 string[] userInfoData = userAuthInfo.UserDataArray;
                 lblCurrentUser.Text = userInfoData[2] + " " + userInfoData[3];
-            }           
+            }
         }
 
     }

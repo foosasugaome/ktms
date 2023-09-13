@@ -1,16 +1,14 @@
-﻿using Microsoft.ApplicationBlocks.Data;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Security.Principal;
 using System.Web.UI.WebControls;
 
 namespace ktms
 {
     public partial class userlist : System.Web.UI.Page
     {
-        string strConn = ConfigurationManager.AppSettings["sqlConn"];
+        private readonly string strConn = ConfigurationManager.AppSettings["sqlConn"];
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -59,26 +57,35 @@ namespace ktms
 
         private void FillData(string searchText = "", int status = -1)
         {
-            string strPath = "~/Files/UserPicture/";
-            string strQuery = "SELECT [ID], [FirstName], [LastName], [Email], [Password], [Phone], [UserType], '" + strPath + "' + [UserImage] as UserImage, " +
-                             "CASE WHEN [Status] = 1 THEN 'Active' ELSE 'Deleted' END AS [Status], FORMAT([CreatedOn], 'MMM dd yyyy') [CreatedOn] FROM [Users] " +
-                             "WHERE (@SearchText = '' OR [FirstName] LIKE @SearchText OR [LastName] LIKE @SearchText OR [Email] LIKE @SearchText OR [Phone] LIKE @SearchText) " +
-                             "AND (@Status = -1 OR [Status] = @Status)";
-
-            using (SqlConnection conn = new SqlConnection(strConn))
-            using (SqlCommand cmd = new SqlCommand(strQuery, conn))
+            try
             {
-                cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
-                cmd.Parameters.AddWithValue("@Status", status);
+                string strPath = "~/Files/UserPicture/";
+                string strQuery = "SELECT [ID], [FirstName], [LastName], [Email], [Password], [Phone], [UserType], '" + strPath + "' + [UserImage] as UserImage, " +
+                                 "CASE WHEN [Status] = 1 THEN 'Active' ELSE 'Deleted' END AS [Status], FORMAT([CreatedOn], 'MMM dd yyyy') [CreatedOn] FROM [Users] " +
+                                 "WHERE (@SearchText = '' OR [FirstName] LIKE @SearchText OR [LastName] LIKE @SearchText OR [Email] LIKE @SearchText OR [Phone] LIKE @SearchText) " +
+                                 "AND (@Status = -1 OR [Status] = @Status)";
 
-                conn.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
+                using (SqlConnection conn = new SqlConnection(strConn))
+                using (SqlCommand cmd = new SqlCommand(strQuery, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+                    cmd.Parameters.AddWithValue("@Status", status);
 
-                gvData.DataSource = ds;
-                gvData.DataBind();
-                conn.Close();
+                    conn.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+
+                    gvData.DataSource = ds;
+                    gvData.DataBind();
+                    conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblResult.Text = "An error occured. Pleae try again later.";
+                throw ex;
             }
         }
 
@@ -90,7 +97,7 @@ namespace ktms
             int intStatus = Convert.ToInt32(ddlStatus.SelectedValue);
             FillData(strSearchText, intStatus);
         }
-        
+
 
     }
 }

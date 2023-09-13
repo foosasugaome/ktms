@@ -416,15 +416,18 @@
     <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
     <Content Include="edittestmaster.aspx" />
-    <Content Include="edittestype.aspx" />
+    <Content Include="edittesttype.aspx" />
     <Content Include="edituser.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Files\TestMaster\0ff6624c-2207-4fc0-9e01-a4b86d6535f2.jpg" />
     <Content Include="Files\TestMaster\3.gif" />
     <Content Include="Files\TestMaster\2.gif" />
     <Content Include="Files\TestMaster\b8194df0-ce87-4c3d-9506-30eda76c0af1.jpg" />
     <Content Include="forgot.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="logout.aspx" />
     <Content Include="myprofile.aspx" />
+    <Content Include="notfound.aspx" />
     <Content Include="reports.aspx" />
     <Content Include="signin.aspx" />
     <Content Include="signout.aspx" />
@@ -494,12 +497,12 @@
     <Compile Include="edittestmaster.aspx.designer.cs">
       <DependentUpon>edittestmaster.aspx</DependentUpon>
     </Compile>
-    <Compile Include="edittestype.aspx.cs">
-      <DependentUpon>edittestype.aspx</DependentUpon>
+    <Compile Include="edittesttype.aspx.cs">
+      <DependentUpon>edittesttype.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="edittestype.aspx.designer.cs">
-      <DependentUpon>edittestype.aspx</DependentUpon>
+    <Compile Include="edittesttype.aspx.designer.cs">
+      <DependentUpon>edittesttype.aspx</DependentUpon>
     </Compile>
     <Compile Include="edituser.aspx.cs">
       <DependentUpon>edituser.aspx</DependentUpon>
@@ -508,12 +511,22 @@
     <Compile Include="edituser.aspx.designer.cs">
       <DependentUpon>edituser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forgot.aspx.cs">
       <DependentUpon>forgot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forgot.aspx.designer.cs">
       <DependentUpon>forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Landing.Master.cs">
       <DependentUpon>Landing.Master</DependentUpon>
@@ -535,6 +548,13 @@
     </Compile>
     <Compile Include="myprofile.aspx.designer.cs">
       <DependentUpon>myprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="notfound.aspx.cs">
+      <DependentUpon>notfound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notfound.aspx.designer.cs">
+      <DependentUpon>notfound.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reports.aspx.cs">

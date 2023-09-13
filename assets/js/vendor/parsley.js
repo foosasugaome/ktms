@@ -127,7 +127,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
         var _parsed$map2 = _slicedToArray(_parsed$map, 4);
 
-        var _ = _parsed$map2[0];
+        var _parsed$map2[0];
         var year = _parsed$map2[1];
         var month = _parsed$map2[2];
         var day = _parsed$map2[3];
@@ -289,7 +289,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   var Base = function Base() {
-    this.__id__ = Utils.generateID();
+    this.__id_Utils.generateID();
   };
 
   Base.prototype = {
@@ -478,7 +478,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   var ValidatorRegistry = function ValidatorRegistry(validators, catalog) {
-    this.__class__ = 'ValidatorRegistry';
+    this.__class_'ValidatorRegistry';
 
     // Default Parsley locale is en
     this.locale = 'en';
@@ -1188,7 +1188,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   var Form = function Form(element, domOptions, options) {
-    this.__class__ = 'Form';
+    this.__class_'Form';
 
     this.element = element;
     this.$element = $(element);
@@ -1476,7 +1476,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   };
 
   var Field = function Field(field, domOptions, options, parsleyFormInstance) {
-    this.__class__ = 'Field';
+    this.__class_'Field';
 
     this.element = field;
     this.$element = $(field);
@@ -1869,7 +1869,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   var parsley_field = Field;
 
   var Multiple = function Multiple() {
-    this.__class__ = 'FieldMultiple';
+    this.__class_'FieldMultiple';
   };
 
   Multiple.prototype = {
@@ -1978,9 +1978,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
   Factory.prototype = {
     init: function init(options) {
-      this.__class__ = 'Parsley';
-      this.__version__ = '2.8.1';
-      this.__id__ = Utils.generateID();
+      this.__class_'Parsley';
+      this.__version_'2.8.1';
+      this.__id_Utils.generateID();
 
       // Pre-compute options
       this._resetOptions(options);

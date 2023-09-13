@@ -18,8 +18,9 @@
         <div class="card user-profile o-hidden mb-4">
             <div class="header-cover" style="background-image: url('assets/images/photo-wide-3.jpg')"></div>
             <div class="user-info">
-                <img class="profile-picture avatar-lg mb-2" src="assets/images/faces/selfie_small.jpg" alt="">
-                <p class="m-0 text-24">Norman Teodoro</p>
+                <asp:Image ID="imgUserPicture" AlternateText="" CssClass="profile-picture avatar-lg mb-2" runat="server" />
+                
+                <p class="m-0 text-24"><asp:Label ID="lblFullName" Text="" runat="server" /></p>
             </div>
             <div class="card-body">
 
@@ -32,26 +33,26 @@
                             <div class="col-md-6 col-6">
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Calendar text-16 mr-1"></i>First Name</p>
-                                    <span>Norman</span>
+                                    <span><asp:Label ID="lblFirstName" Text="" runat="server" /></span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Edit-Map text-16 mr-1"></i>Last name</p>
-                                    <span>Teodoro</span>
+                                    <span><asp:Label ID="lblLastName" Text="" runat="server" /></span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Globe text-16 mr-1"></i>Email</p>
-                                    <span>norman@gmail.com</span>
+                                    <span><asp:Label ID="lblEmail" Text="" runat="server" /></span>
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-6">
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-MaleFemale text-16 mr-1"></i>Phone</p>
-                                    <span>6048312345</span>
+                                    <span><asp:Label ID="lblPhone" Text="" runat="server" /></span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-MaleFemale text-16 mr-1"></i>User Type</p>
-                                    <span>Admin</span>
+                                    <span><asp:Label ID="lblUserType" Text="" runat="server" /></span>
                                 </div>
                                <%-- <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Cloud-Weather text-16 mr-1"></i>Website</p>

@@ -32,7 +32,7 @@ namespace ktms
                         UserDataArray = strUserData
                     };
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Handle exceptions if needed
                     // You can log the error or take appropriate action

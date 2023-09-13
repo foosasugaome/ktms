@@ -1,7 +1,5 @@
-﻿using Microsoft.ApplicationBlocks.Data;
-using System;
+﻿using System;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace ktms
@@ -28,8 +26,6 @@ namespace ktms
 
         protected void lnkSubmit_Click(object sender, EventArgs e)
         {
-            string strFileName = string.Empty;
-
             utils util = new utils();
 
 
@@ -40,6 +36,7 @@ namespace ktms
                 return;
             }
 
+            string strFileName;
             if (fuUserPicture.HasFile)
             {
                 string[] strArray = fuUserPicture.FileName.Split('.');

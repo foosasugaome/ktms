@@ -42,15 +42,8 @@
                             <div class="col-md-6 form-group mb-3">
                                 <asp:Label AssociatedControlID="txtEmail" Text="Email" runat="server" CssClass="form-label" />
                                 <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder="Enter email" TextMode="Email" runat="server" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter email address." ControlToValidate="txtEmail" CssClass="invalid-feedback" Display="Dynamic" />
-                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                            </div>
-
-                            <%--<div class="col-md-6 form-group mb-3">
-                            <asp:Label AssociatedControlID="txtPassword" Text="Password" runat="server" CssClass="form-label" />
-                            <asp:TextBox ID="txtPassword" CssClass="form-control" placeholder="Enter password" runat="server" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please enter a password." ControlToValidate="txtPassword" CssClass="invalid-feedback" Display="Dynamic" />
-                        </div>--%>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter email address." ControlToValidate="txtEmail" CssClass="invalid-feedback" Display="Dynamic" />                            
+                            </div>                            
 
                             <div class="col-md-6 form-group mb-3">
                                 <asp:Label AssociatedControlID="txtPhone" Text="First name" runat="server" CssClass="form-label" />

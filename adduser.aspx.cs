@@ -1,10 +1,6 @@
-﻿using Microsoft.ApplicationBlocks.Data;
-using System;
+﻿using System;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ktms
 {
@@ -53,31 +49,33 @@ namespace ktms
                                  "VALUES(@FirstName, @LastName, @Email, @Password, @Phone, @UserType, @UserImage)";
 
                 using (SqlConnection conn = new SqlConnection(strConn))
-                using (SqlCommand cmd = new SqlCommand(strQuery, conn))
                 {
-                    // Add parameters and their values to prevent SQL injection
-                    cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-                    cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                    cmd.Parameters.AddWithValue("@Phone", txtPhone.Text);
-                    cmd.Parameters.AddWithValue("@UserType", ddlUserType.SelectedValue);
-                    cmd.Parameters.AddWithValue("@UserImage", strFileName);
-
-                    conn.Open();
-                    int intResult = cmd.ExecuteNonQuery();
-
-                    if (intResult != 0)
+                    using (SqlCommand cmd = new SqlCommand(strQuery, conn))
                     {
-                        lblResult.Text = "Data has been saved successfully";
+                        // Add parameters and their values to prevent SQL injection
+                        cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
+                        cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
+                        cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                        cmd.Parameters.AddWithValue("@Password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@Phone", txtPhone.Text);
+                        cmd.Parameters.AddWithValue("@UserType", ddlUserType.SelectedValue);
+                        cmd.Parameters.AddWithValue("@UserImage", strFileName);
 
-                        // Clear input fields
-                        txtFirstName.Text = string.Empty;
-                        txtLastName.Text = string.Empty;
-                        txtEmail.Text = string.Empty;
-                        txtPhone.Text = string.Empty;
-                        txtPassword.Text = string.Empty;
-                        ddlUserType.SelectedIndex = 0;
+                        conn.Open();
+                        int intResult = cmd.ExecuteNonQuery();
+
+                        if (intResult != 0)
+                        {
+                            lblResult.Text = "Data has been saved successfully";
+
+                            // Clear input fields
+                            txtFirstName.Text = string.Empty;
+                            txtLastName.Text = string.Empty;
+                            txtEmail.Text = string.Empty;
+                            txtPhone.Text = string.Empty;
+                            txtPassword.Text = string.Empty;
+                            ddlUserType.SelectedIndex = 0;
+                        }
                     }
                 }
             }
@@ -89,7 +87,7 @@ namespace ktms
             }
         }
 
-        private Boolean UserExists(string email)
+        private bool UserExists(string email)
         {
             bool userFound = false;
             string strQuery = "SELECT COUNT(*) FROM [dbo].[Users] WHERE Email = @Email AND Status = 1";

@@ -11,9 +11,7 @@ namespace ktms
 
             if (userAuthInfo != null)
             {
-                string userName = userAuthInfo.UserName;
-                DateTime expiration = userAuthInfo.Expiration;
-                string userData = userAuthInfo.UserData;
+                
                 string[] userInfoData = userAuthInfo.UserDataArray;
                 lblFullName.Text = userInfoData[2];
             }

@@ -11,61 +11,70 @@ namespace ktms
 {
 
 
-    public partial class edittestype
+    public partial class edittesttype
     {
 
         /// <summary>
-        /// ddlTestType control.
+        /// lblResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTestType;
+        protected global::System.Web.UI.WebControls.Label lblResult;
 
         /// <summary>
-        /// RequiredFieldValidator6 control.
+        /// txtClassType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        protected global::System.Web.UI.WebControls.TextBox txtClassType;
 
         /// <summary>
-        /// ddlLanguage control.
+        /// rfvClassType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLanguage;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvClassType;
 
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// txtLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.TextBox txtLanguage;
 
         /// <summary>
-        /// lnkCancel control.
+        /// rfvLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCancel;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLanguage;
 
         /// <summary>
-        /// lnkSubmit control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSubmit;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnSubmit;
     }
 }
