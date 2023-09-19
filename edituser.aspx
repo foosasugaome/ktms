@@ -28,7 +28,7 @@
                                 <asp:Image Width="100px" ID="imgUserPicture" runat="server" />
                             </div>
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="txtFirstName" runat="server" CssClass="form-label" />
+                                <asp:Label AssociatedControlID="txtFirstName" Text="First Name" runat="server" CssClass="form-label" />
                                 <asp:TextBox ID="txtFirstName" CssClass="form-control" placeholder="Enter first name" runat="server" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter first name." ControlToValidate="txtFirstName" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
@@ -46,7 +46,7 @@
                             </div>                            
 
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="txtPhone" Text="First name" runat="server" CssClass="form-label" />
+                                <asp:Label AssociatedControlID="txtPhone" Text="Phone" runat="server" CssClass="form-label" />
                                 <asp:TextBox ID="txtPhone" CssClass="form-control" placeholder="Enter phone" runat="server" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter phone number." ControlToValidate="txtPhone" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>

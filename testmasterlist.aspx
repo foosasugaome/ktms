@@ -28,10 +28,10 @@
 
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <asp:TextBox placeholder="Search" ID="txtSearch" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox placeholder="Search" ID="txtSearch" CssClass="form-control" runat="server" />
                                 </div>
                                 <div class="col-sm-2">
-                                    <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit"></asp:LinkButton>
+                                    <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="lnkSubmit_Click"></asp:LinkButton>
                                 </div>
                                 <div class="col-sm-8">
                                     <asp:LinkButton ID="lnkAddUser" CssClass="btn btn-primary ripple m-1 float-right" runat="server" Text="Add Test Master" PostBackUrl="~/addtestmaster.aspx" />
@@ -39,7 +39,44 @@
 
                             </div>
                             <div class="col-sm-12 table-responsive">
-                                <table class="table table-striped">
+
+                                <asp:Label Text="" ID="lblResult" CssClass="alert-success" runat="server" />
+                                <asp:GridView runat="server" ID="gvData" DataKeyNames="ID" CssClass="table table-striped m-1" AutoGenerateColumns="false" GridLines="None" EmptyDataText="There are no records to display.">
+                                    <Columns>
+                                        <asp:BoundField HeaderText="ID" DataField="ID" SortExpression="ID" />
+                                        <asp:BoundField HeaderText="Test Type" DataField="TMTestType" />
+                                        <asp:BoundField HeaderText="Question" DataField="Question" />
+                                        <asp:TemplateField HeaderText="Question Image">
+                                            <ItemTemplate>
+                                                <asp:Image Height="60px" ImageUrl='<%#Eval("QuestionImg") %>' runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>                                        
+                                        <asp:BoundField HeaderText="Answer A" DataField="AnswerA" />
+                                        <asp:BoundField HeaderText="Answer B" DataField="AnswerB" />
+                                        <asp:BoundField HeaderText="Answer C" DataField="AnswerD" />
+                                        <asp:BoundField HeaderText="Answer D" DataField="AnswerD" />
+                                        <asp:BoundField HeaderText="Created On" DataField="CreatedDate" />
+                                        <asp:BoundField HeaderText="Created By" DataField="CreatedBy" />
+
+                                        <%--                                        <asp:TemplateField HeaderText="Status">
+                                            <itemtemplate>
+                                                <asp:LinkButton ID="lnkChangeStatus" CommandArgument='<%#Eval("ID") %>' Text='<%#Eval("Status")%>' runat="server" OnClick="lnkChangeStatus_Click" CssClass="text-danger mr2">
+                                                </asp:LinkButton>
+                                            </itemtemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="">
+                                            <itemtemplate>
+                                                <asp:LinkButton ID="lnkEdit" CommandArgument='<%#Eval("ID") %>' runat="server" CssClass="text-success mr-2" OnClick="lnkEdit_Click">
+                                                    <i class="nav-icon i-Pen-2 font-weight-bold"></i>
+                                                </asp:LinkButton>
+                                            </itemtemplate>
+                                        </asp:TemplateField>--%>
+                                    </Columns>
+                                </asp:GridView>
+
+
+                                <%-- <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -102,7 +139,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table>--%>
                             </div>
                         </div>
                     </div>

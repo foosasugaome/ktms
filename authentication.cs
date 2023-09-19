@@ -12,7 +12,7 @@ namespace ktms
         {
             UserInfo userInfo = null;
 
-            string query = "SELECT [ID],[Email], [FirstName], [LastName], [Password], [UserType] FROM [dbo].[USERS] WHERE [Email] = @Email AND Status = 1";
+            string query = "SELECT [ID],[Email], [FirstName], [LastName], [Password], [UserType], [UserImage] FROM [dbo].[USERS] WHERE [Email] = @Email AND Status = 1";
 
             using (SqlConnection conn = new SqlConnection(strConn))
             using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -33,7 +33,8 @@ namespace ktms
                                 Email = reader["Email"].ToString(),
                                 FirstName = reader["FirstName"].ToString(),
                                 LastName = reader["LastName"].ToString(),
-                                UserType = reader["UserType"].ToString()
+                                UserType = reader["UserType"].ToString(),
+                                UserImage = reader["UserImage"].ToString(),
                             };
                         }
                     }

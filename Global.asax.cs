@@ -63,11 +63,11 @@ namespace ktms
             string strErrorQuery = "INSERT INTO [dbo].[ErrorLogs] ([ErrorMessage]) VALUES(@Error)";
             using (SqlConnection conn = new SqlConnection(strConn))
             {
-                using (SqlCommand cmd = new SqlCommand(strErrorQuery, conn))
+                using (SqlCommand insertError = new SqlCommand(strErrorQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Error", strErrorMessage);
+                    insertError.Parameters.AddWithValue("@Error", strErrorMessage);
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    insertError.ExecuteNonQuery();
                 }
             }
         }

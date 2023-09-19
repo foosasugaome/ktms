@@ -18,7 +18,7 @@ namespace ktms
                     // Decrypt the cookie to get the Forms Authentication ticket
                     FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
 
-                    // Now we can access the user's authentication information
+                    // Access the user's authentication information
                     string userName = authTicket.Name;
                     DateTime expiration = authTicket.Expiration;
                     string userData = authTicket.UserData;
@@ -34,8 +34,7 @@ namespace ktms
                 }
                 catch (Exception)
                 {
-                    // Handle exceptions if needed
-                    // You can log the error or take appropriate action
+                    
                 }
             }
 

@@ -6,13 +6,7 @@
     <div id="activePage" hidden>testmasterlist</div>
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div>
-            <h1>Add Test Master</h1>
-            <div class="breadcrumb">
-                <ul>
-                    <li><a href="testmasterlist.aspx">Test Master</a></li>
-                    <li>Add Test Master</li>
-                </ul>
-            </div>
+            <h1>Add Test Master</h1>            
         </div>
 
         <div class="separator-breadcrumb border-top"></div>
@@ -24,17 +18,14 @@
                         <div class="card-title mb-3">Add Test Master</div>
 
                         <div class="row">
-
+                            <div class="col-md-12">
+                                <asp:Label Text="" ID="lblResult" CssClass="alert-success" runat="server" /><asp:HyperLink ID="hlSignin" text="" runat="server" Visible="false" NavigateUrl="~/signin.aspx" />
+                            </div>
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="ddlTestType" Text="Test type" runat="server" CssClass="form-label" />
+                                <asp:Label AssociatedControlID="ddlTestType" Text="Test Type" runat="server" CssClass="form-label" />
                                 <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control">
-                                    <asp:ListItem Selected="True" Value="0" Text="Select" />
-                                    <asp:ListItem Value="1" Text="Class 5 - English" />
-                                    <asp:ListItem Value="1" Text="Class 5 - French" />
-                                    <asp:ListItem Value="1" Text="Class 7 - English" />
-                                    <asp:ListItem Value="1" Text="Class 7 - French" />
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select test type." ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select language" ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
@@ -88,7 +79,7 @@
                             </div>
                             <div class="col-md-12">
                                 <asp:LinkButton ID="lnkCancel" CssClass="btn btn-dark float-right m-1" Text="Cancel" runat="server" PostBackUrl="~/testmasterlist.aspx" CausesValidation="false" />
-                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" />
+                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" OnClick="lnkSubmit_Click" CausesValidation="false" />
                             </div>
                         </div>
 

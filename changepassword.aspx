@@ -44,7 +44,10 @@
                             </div>
                             <div class="col-md-12">
                                 <asp:LinkButton ID="lnkCancel" CssClass="btn btn-dark float-right m-1" Text="Cancel" runat="server" PostBackUrl="~/default.aspx" CausesValidation="false" />
-                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" />
+                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" OnClick="lnkSubmit_Click" />
+                            </div>
+                            <div class="col-md-12">
+                                <asp:Label ID="lblResult" runat="server" />
                             </div>
                         </div>
 

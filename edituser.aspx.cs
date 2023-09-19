@@ -21,7 +21,10 @@ namespace ktms
             {
                 Response.Redirect("userlist.aspx");
             }
-            ViewState["Email"] = txtEmail.Text;
+            if (IsPostBack)
+            {
+                ViewState["Email"] = txtEmail.Text;
+            }
         }
 
         protected void lnkSubmit_Click(object sender, EventArgs e)
@@ -29,7 +32,7 @@ namespace ktms
             utils util = new utils();
 
 
-            if (ViewState["Email"].ToString() != txtEmail.Text || util.UserExists(txtEmail.Text))
+            if (ViewState["Email"].ToString() != txtEmail.Text && util.UserExists(txtEmail.Text))
             {
                 lblResult.Text = "Email already exists.";
                 txtEmail.Focus();

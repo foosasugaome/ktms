@@ -61,18 +61,18 @@
                                     <asp:BoundField HeaderText="Created On" DataField="CreatedOn" />
                                     <asp:TemplateField HeaderText="Status">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="btnChangeStatus" CommandArgument='<%#Eval("ID") %>' Text='<%#Eval("Status")%>' runat="server" OnClick="btnChangeStatus_Click" CssClass="text-danger mr2">        
+                                            <asp:LinkButton ID="btnChangeStatus" CommandArgument='<%#Eval("ID") %>' Text='<%#Eval("Status")%>' runat="server" OnClick="btnChangeStatus_Click" CssClass="text-danger mr2" CausesValidation="false">        
                                             </asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="">
+                                    <%--<asp:TemplateField HeaderText="">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="btnEdit" CommandArgument='<%#Eval("ID") %>' runat="server" CssClass="text-success mr-2" OnClick="btnEdit_Click"> 
-                        <i class="nav-icon i-Pen-2 font-weight-bold"></i>
+                                            <asp:LinkButton ID="btnEdit" CommandArgument='<%#Eval("ID") %>' runat="server" CssClass="text-success mr-2" OnClick="btnEdit_Click" CausesValidation="false"> 
+                                                <i class="nav-icon i-Pen-2 font-weight-bold"></i>
                                             </asp:LinkButton>
                                         </ItemTemplate>
-                                    </asp:TemplateField>
+                                    </asp:TemplateField>--%>
                                 </Columns>
                             </asp:GridView>
                         </div>

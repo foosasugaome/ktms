@@ -413,6 +413,7 @@
     <Content Include="assets\styles\vendor\toastr.min.css" />
     <Content Include="changepassword.aspx" />
     <Content Include="code_bin\code_bin.txt" />
+    <Content Include="code_bin\Queries.txt" />
     <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
     <Content Include="edittestmaster.aspx" />
@@ -423,6 +424,7 @@
     <Content Include="Files\TestMaster\3.gif" />
     <Content Include="Files\TestMaster\2.gif" />
     <Content Include="Files\TestMaster\b8194df0-ce87-4c3d-9506-30eda76c0af1.jpg" />
+    <Content Include="Files\UserPicture\blank-profile-picture-973460_640.png" />
     <Content Include="forgot.aspx" />
     <Content Include="Global.asax" />
     <Content Include="logout.aspx" />
@@ -591,6 +593,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site_Normal.Master.cs">
+      <DependentUpon>Site_Normal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site_Normal.Master.designer.cs">
+      <DependentUpon>Site_Normal.Master</DependentUpon>
     </Compile>
     <Compile Include="testmasterlist.aspx.cs">
       <DependentUpon>testmasterlist.aspx</DependentUpon>
@@ -1022,6 +1031,7 @@
     <Content Include="Landing.Master" />
     <Content Include="Site.Master" />
     <None Include="packages.config" />
+    <Content Include="Site_Normal.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1030,7 +1040,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Files\UserPicture\" />
+    <Folder Include="Files\Question\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -32,7 +32,7 @@ namespace ktms
                 Session["SessionID"] = Guid.NewGuid().ToString(); // Generate a new session ID
 
                 // string strData = "Admin, Norman Teodoro";         // This will be userData of the cookie   
-                string strUserData = userInfo.ID + "," + userInfo.Email + "," + userInfo.FirstName + "," + userInfo.LastName + "," + userInfo.UserType;
+                string strUserData = userInfo.ID + "," + userInfo.Email + "," + userInfo.FirstName + "," + userInfo.LastName + "," + userInfo.UserType + ',' + userInfo.UserImage;
 
                 // Create a FormsAuthentication ticket with user data
                 FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(

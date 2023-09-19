@@ -30,5 +30,19 @@ namespace ktms
             }
             return userFound;
         }
+
+        public int CurrentLoggedUserID()
+        {
+            int UUID = 0;
+
+            UserAuthenticationInfo userAuthInfo = AuthenticationHelper.GetUserAuthenticationInfo();
+
+            if (userAuthInfo != null)
+            {
+                string[] userInfoData = userAuthInfo.UserDataArray;
+                UUID = Convert.ToInt32(userInfoData[0]);                
+            }
+            return UUID;
+        }
     }
 }
