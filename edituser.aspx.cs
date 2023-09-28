@@ -31,8 +31,9 @@ namespace ktms
         {
             utils util = new utils();
 
+            var (userExists, userId) = util.CheckUserExists(txtEmail.Text);
 
-            if (ViewState["Email"].ToString() != txtEmail.Text && util.UserExists(txtEmail.Text))
+            if (ViewState["Email"].ToString() != txtEmail.Text && userExists)
             {
                 lblResult.Text = "Email already exists.";
                 txtEmail.Focus();

@@ -170,7 +170,7 @@ namespace ktms
             }
             catch (Exception ex)
             {             
-                lblResult.Text = "An error occurred.";
+                lblResult.Text = "An error occurred." + ex.Message;
             }
         }
 

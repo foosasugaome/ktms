@@ -25,8 +25,17 @@
 
                         <div class="row">
 
+                            <div class="col-md-12">
+                                <asp:Label Text="" ID="lblResult" CssClass="alert-success" runat="server" /><asp:HyperLink ID="hlSignin" Text="" runat="server" Visible="false" NavigateUrl="~/signin.aspx" />
+                            </div>
+
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="ddlTestType" Text="Test type" runat="server" CssClass="form-label" />
+                                <asp:Label AssociatedControlID="ddlTestType" Text="Test Type" runat="server" CssClass="form-label" />
+                                <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control">
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select language" ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
+
+                                <%--<asp:Label AssociatedControlID="ddlTestType" Text="Test type" runat="server" CssClass="form-label" />
                                 <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control">
                                     <asp:ListItem Selected="True" Value="0" Text="Select" />
                                     <asp:ListItem Value="1" Text="Class 5 - English" />
@@ -34,7 +43,7 @@
                                     <asp:ListItem Value="1" Text="Class 7 - English" />
                                     <asp:ListItem Value="1" Text="Class 7 - French" />
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select a test type." ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select a test type." ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />--%>
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
@@ -47,7 +56,7 @@
                                 <asp:Label Text="Question image" runat="server" CssClass="form-label" AssociatedControlID="fuQuestionImage" />
                                 <div class="custom-file">
                                     <asp:FileUpload ID="fuQuestionImage" CssClass="form-control form-control" runat="server" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="fuQuestionImage" runat="server" ErrorMessage="Please upload picture" CssClass="invalid-feedback" Display="Dynamic" />
+                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="fuQuestionImage" runat="server" ErrorMessage="Please upload picture" CssClass="invalid-feedback" Display="Dynamic" />--%>
                                 </div>
                             </div>
 
@@ -77,9 +86,18 @@
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="txtCorrectAnswer" Text="Correct Answer" runat="server" CssClass="form-label" />
+                                <asp:Label ID="lblCorrectAnswer" Text="Correct Answer" AssociatedControlID="ddlCorrectAnswer" runat="server" CssClass="form-label" />
+                                <asp:DropDownList ID="ddlCorrectAnswer" runat="server" CssClass="form-control">
+                                    <asp:ListItem Text="A" Value="A" />
+                                    <asp:ListItem Text="B" Value="B" />
+                                    <asp:ListItem Text="C" Value="C" />
+                                    <asp:ListItem Text="D" Value="D" />
+                                </asp:DropDownList>
+
+
+                                <%--<asp:Label AssociatedControlID="txtCorrectAnswer" Text="Correct Answer" runat="server" CssClass="form-label" />
                                 <asp:TextBox ID="txtCorrectAnswer" CssClass="form-control" placeholder="Enter correct answer" runat="server" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please enter correct answer." ControlToValidate="txtCorrectAnswer" CssClass="invalid-feedback" Display="Dynamic" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Please enter correct answer." ControlToValidate="txtCorrectAnswer" CssClass="invalid-feedback" Display="Dynamic" />--%>
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
@@ -90,12 +108,12 @@
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Image ID="imgQuestion" ImageUrl="~/Files/TestMaster/2.gif" runat="server" Width="50px" />
+                                <asp:Image ID="imgQuestion" runat="server" Height="150px" />
                             </div>
 
                             <div class="col-md-12">
                                 <asp:LinkButton ID="lnkCancel" CssClass="btn btn-dark float-right m-1" Text="Cancel" runat="server" PostBackUrl="~/testmasterlist.aspx" CausesValidation="false" />
-                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" />
+                                <asp:LinkButton ID="lnkSubmit" CommandArgument='<%#Eval("ID") %>' CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" OnClick="lnkSubmit_Click" />
                             </div>
                         </div>
 

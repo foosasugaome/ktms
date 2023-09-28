@@ -38,7 +38,8 @@ namespace ktms
             }
 
             utils utils = new utils();
-            if (utils.UserExists(strEmail)) 
+            var (userExists, userID) = utils.CheckUserExists(strEmail);
+            if (userExists) 
             {
                 pageMessage.Text = "Email already exists.";
                 txtEmail.Focus();

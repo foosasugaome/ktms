@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="reports.aspx.cs" Inherits="ktms.reports1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="reports.aspx.cs" Inherits="ktms.reports" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -24,80 +24,61 @@
                         <div class="row">
 
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="ddlTestType" Text="User" runat="server" CssClass="form-label" />
-                                <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control">
-                                    <asp:ListItem Selected="True" Value="0" Text="Select" />
-                                    <asp:ListItem Value="1" Text="George Benson" />
-                                    <asp:ListItem Value="2" Text="Erykah Badu" />
-                                    <asp:ListItem Value="3" Text="Nina Simone" />
-                                    <asp:ListItem Value="4" Text="Bill Withers" />
-                                    <asp:ListItem Value="5" Text="George Jackson" />
+                                <asp:Label AssociatedControlID="ddlUserList" Text="User" runat="server" CssClass="form-label" />
+                                <asp:DropDownList ID="ddlUserList" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlTestType_SelectedIndexChanged" AutoPostBack="true">
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" InitialValue="0" runat="server" ErrorMessage="Please select test type." ControlToValidate="ddlTestType" CssClass="invalid-feedback" Display="Dynamic" />
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
-                                <asp:Label AssociatedControlID="ddlLanguage" Text="Test Type" runat="server" CssClass="form-label" />
-                                <asp:DropDownList ID="ddlLanguage" runat="server" CssClass="form-control">
-                                    <asp:ListItem Selected="True" Value="0" Text="Select" />
-                                    <asp:ListItem Value="1" Text="Class 5 - English" />
-                                    <asp:ListItem Value="1" Text="Class 7 - English" />
-                                    <asp:ListItem Value="1" Text="Class 5 - French" />
-                                    <asp:ListItem Value="1" Text="Class 7 - French" />
-                                </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" InitialValue="0" runat="server" ErrorMessage="Please select language" ControlToValidate="ddlLanguage" CssClass="invalid-feedback" Display="Dynamic" />
+                                <asp:Label AssociatedControlID="ddlTestType" Text="Test Type" runat="server" CssClass="form-label" />
+                                <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlTestType_SelectedIndexChanged" AutoPostBack="true">
+                                </asp:DropDownList>                                
                             </div>
 
 
                             <div class="col-md-6 form-group mb-3">
                             </div>
 
-                            <div class="col-md-12">
-                                <%--<asp:LinkButton ID="lnkCancel" CssClass="btn btn-dark float-right m-1" Text="Cancel" runat="server" PostBackUrl="~/testtypelist.aspx" CausesValidation="false" />--%>
-                                <asp:LinkButton ID="lnkSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" />
+
+
+
+                            <div class="col-md-6 form-group mb-3">
                             </div>
+
+                            <%--<div class="col-md-12">
+                            
+                                <asp:LinkButton ID="btnSubmit" CssClass="btn btn-primary float-right m-1" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
+                            </div>--%>
 
                         </div>
 
-                 <div class="col-md-6 form-group mb-3"> </div> <!-- Spacer -->
+                        <div class="col-md-6 form-group mb-3"></div>
+                        <!-- Spacer -->
+                        <div class="col-md-12">
+                            <asp:Label Text="" ID="lblResult" CssClass="alert-success" runat="server" />
+                        </div>
 
 
-                        <div class="col-sm-12 table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Test Type</th>
-                                        <th scope="col">Correct Answers</th>
-                                        <th scope="col">Total Questions</th>
-                                        <th scope="col">Result</th>
-                                        <th scope="col">Created On</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>George Benson</td>
-                                        <td>Class 5 - English</td>
-                                        <td>5</td>
-                                        <td>10</td>
-                                        <td>Pass</td>
-                                        <td>August 23, 2023
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Bill Withers</td>
-                                        <td>Class 5 - French</td>
-                                        <td>9</td>
-                                        <td>10</td>
-                                        <td>Pass</td>
-                                        <td>August 23, 2023
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-sm-12 table-responsive">                            
+                            <asp:GridView runat="server" ID="gvData" CssClass="table table-striped m-1" AutoGenerateColumns="false" GridLines="None" EmptyDataText="There are no records to display.">
+                                <Columns>
+                                    <%--<asp:BoundField HeaderText="ID" DataField="ID" SortExpression="ID" />--%>
+                                    <asp:BoundField HeaderText="Name" DataField="Name" />
+                                    <asp:BoundField HeaderText="Test Type" DataField="TestType" />
+                                    <asp:BoundField HeaderText="Correct Answers" DataField="CorrectAnswers" />
+                                    <asp:BoundField HeaderText="Total Questions" DataField="TotalQuestions" />
+                                    <asp:BoundField HeaderText="Test Result" DataField="TestResult" />
+                                    <asp:BoundField HeaderText="Created On" DataField="CreatedOn" />                                
+
+                                    <%--<asp:TemplateField HeaderText="">
+                 <ItemTemplate>
+                     <asp:LinkButton ID="btnEdit" CommandArgument='<%#Eval("ID") %>' runat="server" CssClass="text-success mr-2" OnClick="btnEdit_Click" CausesValidation="false"> 
+                         <i class="nav-icon i-Pen-2 font-weight-bold"></i>
+                     </asp:LinkButton>
+                 </ItemTemplate>
+             </asp:TemplateField>--%>
+                                </Columns>
+                            </asp:GridView>
                         </div>
 
                     </div>

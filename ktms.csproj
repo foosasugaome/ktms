@@ -431,6 +431,7 @@
     <Content Include="myprofile.aspx" />
     <Content Include="notfound.aspx" />
     <Content Include="reports.aspx" />
+    <Content Include="reset.aspx" />
     <Content Include="signin.aspx" />
     <Content Include="signout.aspx" />
     <Content Include="signup.aspx" />
@@ -565,6 +566,13 @@
     </Compile>
     <Compile Include="reports.aspx.designer.cs">
       <DependentUpon>reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reset.aspx.cs">
+      <DependentUpon>reset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reset.aspx.designer.cs">
+      <DependentUpon>reset.aspx</DependentUpon>
     </Compile>
     <Compile Include="signin.aspx.cs">
       <DependentUpon>signin.aspx</DependentUpon>
@@ -1032,6 +1040,7 @@
     <Content Include="Site.Master" />
     <None Include="packages.config" />
     <Content Include="Site_Normal.Master" />
+    <Content Include="rules.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

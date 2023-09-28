@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.Web.UI.WebControls;
 
 namespace ktms
 {
@@ -48,6 +49,16 @@ namespace ktms
         {
             string strSearchText = txtSearch.Text;
             FillData(strSearchText);
+        }
+
+        protected void lnkEdit_Click(object sender, EventArgs e)
+        {
+            lblResult.Text = string.Empty;
+            LinkButton objLinkButton = (LinkButton)sender;
+            string strID = objLinkButton.CommandArgument;
+            Session["TestMasterID"] = strID;
+
+            Response.Redirect("edittestmaster.aspx");
         }
     }
 }
