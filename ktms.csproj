@@ -414,6 +414,7 @@
     <Content Include="changepassword.aspx" />
     <Content Include="code_bin\code_bin.txt" />
     <Content Include="code_bin\Queries.txt" />
+    <Content Include="CreateGetDashboardSP.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
     <Content Include="edittestmaster.aspx" />
@@ -478,6 +479,13 @@
     </Compile>
     <Compile Include="changepassword.aspx.designer.cs">
       <DependentUpon>changepassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateGetDashboardSP.aspx.cs">
+      <DependentUpon>CreateGetDashboardSP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateGetDashboardSP.aspx.designer.cs">
+      <DependentUpon>CreateGetDashboardSP.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>

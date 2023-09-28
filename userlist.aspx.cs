@@ -55,39 +55,72 @@ namespace ktms
             }
         }
 
+        //private void FillData(string searchText = "", int status = -1)
+        //{
+        //    try
+        //    {
+        //        string strPath = "~/Files/UserPicture/";
+        //        string strQuery = "SELECT [ID], [FirstName], [LastName], [Email], [Password], [Phone], [UserType], '" + strPath + "' + [UserImage] as UserImage, " +
+        //                         "CASE WHEN [Status] = 1 THEN 'Active' ELSE 'Deleted' END AS [Status], FORMAT([CreatedOn], 'MMM dd yyyy') [CreatedOn] FROM [Users] " +
+        //                         "WHERE (@SearchText = '' OR [FirstName] LIKE @SearchText OR [LastName] LIKE @SearchText OR [Email] LIKE @SearchText OR [Phone] LIKE @SearchText) " +
+        //                         "AND (@Status = -1 OR [Status] = @Status)";
+
+        //        using (SqlConnection conn = new SqlConnection(strConn))
+        //        using (SqlCommand cmd = new SqlCommand(strQuery, conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+        //            cmd.Parameters.AddWithValue("@Status", status);
+
+        //            conn.Open();
+        //            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //            DataSet ds = new DataSet();
+        //            adapter.Fill(ds);
+
+        //            gvData.DataSource = ds;
+        //            gvData.DataBind();
+        //            conn.Close();
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblResult.Text = "An error occured. Pleae try again later.";
+        //        throw ex;
+        //    }
+        //}
+
+
         private void FillData(string searchText = "", int status = -1)
         {
             try
             {
-                string strPath = "~/Files/UserPicture/";
-                string strQuery = "SELECT [ID], [FirstName], [LastName], [Email], [Password], [Phone], [UserType], '" + strPath + "' + [UserImage] as UserImage, " +
-                                 "CASE WHEN [Status] = 1 THEN 'Active' ELSE 'Deleted' END AS [Status], FORMAT([CreatedOn], 'MMM dd yyyy') [CreatedOn] FROM [Users] " +
-                                 "WHERE (@SearchText = '' OR [FirstName] LIKE @SearchText OR [LastName] LIKE @SearchText OR [Email] LIKE @SearchText OR [Phone] LIKE @SearchText) " +
-                                 "AND (@Status = -1 OR [Status] = @Status)";
-
                 using (SqlConnection conn = new SqlConnection(strConn))
-                using (SqlCommand cmd = new SqlCommand(strQuery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
-                    cmd.Parameters.AddWithValue("@Status", status);
+                    using (SqlCommand cmd = new SqlCommand("SearchUsers", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure; // Set command type to stored procedure
 
-                    conn.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    adapter.Fill(ds);
+                        // Add parameters
+                        cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+                        cmd.Parameters.AddWithValue("@Status", status);
 
-                    gvData.DataSource = ds;
-                    gvData.DataBind();
-                    conn.Close();
+                        conn.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+
+                        gvData.DataSource = ds;
+                        gvData.DataBind();
+                    }
                 }
-
             }
             catch (Exception ex)
             {
-                lblResult.Text = "An error occured. Pleae try again later.";
+                lblResult.Text = "An error occurred. Please try again later.";
                 throw ex;
             }
         }
+
 
 
         protected void lnkSubmit_Click(object sender, EventArgs e)

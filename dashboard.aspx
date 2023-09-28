@@ -20,7 +20,9 @@
                             <div class="card-body text-center">
                                 <i class="i-Data-Upload"></i>
                                 <p class="text-muted mt-2 mb-2">Total Students</p>
-                                <p class="text-primary text-24 line-height-1 m-0">21</p>
+                                <p class="text-primary text-24 line-height-1 m-0">
+                                    <asp:Label ID="lblTotalStudents" runat="server" />
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -30,7 +32,9 @@
                             <div class="card-body text-center">
                                 <i class="i-Add-User"></i>
                                 <p class="text-muted mt-2 mb-2">New Students</p>
-                                <p class="text-primary text-24 line-height-1 m-0">21</p>
+                                <p class="text-primary text-24 line-height-1 m-0">
+                                    <asp:Label ID="lblNewStudents" runat="server" />
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -39,8 +43,10 @@
                         <div class="card card-icon mb-4">
                             <div class="card-body text-center">
                                 <i class="i-Money-2"></i>
-                                <p class="text-muted mt-2 mb-2">Test Type</p>
-                                <p class="text-primary text-24 line-height-1 m-0">40</p>
+                                <p class="text-muted mt-2 mb-2">Test Types</p>
+                                <p class="text-primary text-24 line-height-1 m-0">
+                                    <asp:Label ID="lblTestType" runat="server" />
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -51,7 +57,9 @@
                             <div class="card-body text-center">
                                 <i class="i-Data-Upload"></i>
                                 <p class="text-muted mt-2 mb-2">Total Attempts</p>
-                                <p class="text-primary text-24 line-height-1 m-0">21</p>
+                                <p class="text-primary text-24 line-height-1 m-0">
+                                    <asp:Label ID="lblTotalAttempts" runat="server" />
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -60,8 +68,10 @@
                         <div class="card card-icon mb-4">
                             <div class="card-body text-center">
                                 <i class="i-Add-User"></i>
-                                <p class="text-muted mt-2 mb-2">Past Attempts</p>
-                                <p class="text-primary text-24 line-height-1 m-0">21</p>
+                                <p class="text-muted mt-2 mb-2">Passed Attempts</p>
+                                <p class="text-primary text-24 line-height-1 m-0">
+                                    <asp:Label ID="lblPassedAttempts" runat="server" />
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -70,8 +80,10 @@
                         <div class="card card-icon mb-4">
                             <div class="card-body text-center">
                                 <i class="i-Money-2"></i>
-                                <p class="text-muted mt-2 mb-2">Test Attempts</p>
-                                <p class="text-primary text-24 line-height-1 m-0">21</p>
+                                <p class="text-muted mt-2 mb-2">Failed Attempts</p>
+                                <p class="text-primary text-24 line-height-1 m-0">
+                                    <asp:Label ID="lblFailedAttempts" runat="server" />
+                                </p>
                             </div>
                         </div>
                     </div>
