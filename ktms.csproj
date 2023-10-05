@@ -31,6 +31,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -71,6 +75,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -412,9 +417,6 @@
     <Content Include="assets\styles\vendor\toastr.css" />
     <Content Include="assets\styles\vendor\toastr.min.css" />
     <Content Include="changepassword.aspx" />
-    <Content Include="code_bin\code_bin.txt" />
-    <Content Include="code_bin\Queries.txt" />
-    <Content Include="CreateGetDashboardSP.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="default.aspx" />
     <Content Include="edittestmaster.aspx" />
@@ -479,13 +481,6 @@
     </Compile>
     <Compile Include="changepassword.aspx.designer.cs">
       <DependentUpon>changepassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CreateGetDashboardSP.aspx.cs">
-      <DependentUpon>CreateGetDashboardSP.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreateGetDashboardSP.aspx.designer.cs">
-      <DependentUpon>CreateGetDashboardSP.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
@@ -609,13 +604,6 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site_Normal.Master.cs">
-      <DependentUpon>Site_Normal.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site_Normal.Master.designer.cs">
-      <DependentUpon>Site_Normal.Master</DependentUpon>
     </Compile>
     <Compile Include="testmasterlist.aspx.cs">
       <DependentUpon>testmasterlist.aspx</DependentUpon>
@@ -1047,8 +1035,6 @@
     <Content Include="Landing.Master" />
     <Content Include="Site.Master" />
     <None Include="packages.config" />
-    <Content Include="Site_Normal.Master" />
-    <Content Include="rules.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1057,6 +1043,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="code_bin\" />
     <Folder Include="Files\Question\" />
   </ItemGroup>
   <PropertyGroup>
